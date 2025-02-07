@@ -1,0 +1,67 @@
+ifeq ($(TEKKOTSU_ENVIRONMENT_CONFIGURATION),)
+$(error This makefile is not meant to be run directly.  It is intended to contain local-specific build instructions.  Please run 'make' from the main project directory.);
+endif
+
+# Each directory which contains a source file of the same name is considered
+# a separate executable, and its subdirectory is specific to it
+
+# check project directory
+PROJ_EXECS:=$(patsubst local/%,%,$(shell find local -mindepth 1 -maxdepth 1 -type d -name '[a-z]*'))
+# check framework directory
+EXECS:=$(patsubst $(TEKKOTSU_ROOT)/local/%,%,$(shell find $(TEKKOTSU_ROOT)/local -mindepth 1 -maxdepth 1 -type d -name '[a-z]*'))
+EXECS:=$(filter-out terk,$(EXECS))
+EXECS:=$(sort $(PROJ_EXECS) $(EXECS))
+
+$(EXECS): %: checkLibs %-$(subst TGT_,,$(TEKKOTSU_TARGET_MODEL))
+
+.PHONY: $(EXECS)
+
+ifeq ($(shell if [ -d "$(ICE_ROOT)" ] ; then echo HAVE_ICE; fi),HAVE_ICE)
+	PROJ_EXECS:=$(filter-out terk,$(PROJ_EXECS))
+endif
+LSRC_SKIP:=$(foreach x,$(PROJ_EXECS),\! -path local/$(x)/\*)
+LSRCS:=$(shell find local $(LSRC_SKIP) -name "*$(SRCSUFFIX)")
+SRCS:=$(SRCS) $(LSRCS)
+
+TGTEXECS:=$(addsuffix $(subst TGT_,-,$(TEKKOTSU_TARGET_MODEL)),$(EXECS))
+
+ifeq ($(shell uname | grep -ci cygwin),0)
+  PLATFORM_FLAGS:=$(PLATFORM_FLAGS) -DHAVE_READDIR_R
+endif
+
+$(PROJ_BD)/local/local.d: $(shell find local -name "*$(SRCSUFFIX)") $(wildcard $(TK_BD)/local/*)
+	@echo Generating $@...
+	@mkdir -p $(dir $@)
+	@rm -f $@;
+	@for dir in $(EXECS) ; do \
+		unset curobj curdir tkdir tkobj; \
+		if [ -d "local/$$dir" ] ; then \
+			curdir="local/$$dir"; \
+			curobj=`find local/$$dir -name "*$(SRCSUFFIX)" | sed 's@\(.*\)$(SRCSUFFIX)$$@$(PROJ_BD)/\1.o@' | xargs` ; \
+		fi; \
+		if [ -d "$(TEKKOTSU_ROOT)/local/$$dir" ] ; then \
+			tkdir="$(TEKKOTSU_ROOT)/local/$$dir"; \
+			tkobj=`find "$(TEKKOTSU_ROOT)/local/$$dir" -name "*$(SRCSUFFIX)" | sed 's@^$(TEKKOTSU_ROOT)\(.*\)$(SRCSUFFIX)$$@$(TK_BD)\1.o@' | xargs` ; \
+		fi; \
+		echo "$${dir}$(subst TGT_,-,$(TEKKOTSU_TARGET_MODEL))_OBJS:=$$curobj $$tkobj" >> $@; \
+		echo >> $@ ; \
+		echo "$${dir}$(subst TGT_,-,$(TEKKOTSU_TARGET_MODEL)): \$$($${dir}$(subst TGT_,-,$(TEKKOTSU_TARGET_MODEL))_OBJS)" >> $@ ; \
+		echo >> $@ ; \
+	done;
+
+compile compile-sim: tekkotsu-$(subst TGT_,,$(TEKKOTSU_TARGET_MODEL))
+	@echo "Build successful."
+
+$(TGTEXECS): $(PROJ_BD)/project.a $(USERLIBS) 
+	@if [ -r dist_hosts.txt -a -r $(PROJ_BD)/joblist.txt ] ; then \
+		echo "Distributing compiles..."; \
+		../tools/pm.pl dist_hosts.txt $(PROJ_BD)/joblist.txt ; \
+	fi
+	@rm -f $(PROJ_BD)/joblist.txt; #this is so we don't rebuild multiple times
+	@echo "Creating executable binary..."
+	@objs="$($@_OBJS)" ; \
+	libs="$(PROJ_BD)/project.a $(USERLIBS) $(LDFLAGS)" ; \
+	undef=`nm -g "$(PROJ_BD)/project.a" $(filter %.a,$(USERLIBS)) | grep autoRegister | grep -v " *U" | cut -f 3 -d ' ' | sort -u | sed 's/^/-u /'`; \
+	echo "$@ <- $${objs} $${libs}" | sed 's@$(PROJ_BD)/@@g'; \
+	$(CXX) -o $@ $$undef $$objs $$libs  ;
+	@echo "You probably now want to run './$@'";

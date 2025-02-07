@@ -1,0 +1,285 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 42;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		69434C810AF70F1B00904297 /* plist.cc in Sources */ = {isa = PBXBuildFile; fileRef = 69434C790AF70F1B00904297 /* plist.cc */; };
+		69434C830AF70F1B00904297 /* plistBase.cc in Sources */ = {isa = PBXBuildFile; fileRef = 69434C7B0AF70F1B00904297 /* plistBase.cc */; };
+		69434C850AF70F1B00904297 /* plistCollections.cc in Sources */ = {isa = PBXBuildFile; fileRef = 69434C7D0AF70F1B00904297 /* plistCollections.cc */; };
+		69434C870AF70F1B00904297 /* plistPrimitives.cc in Sources */ = {isa = PBXBuildFile; fileRef = 69434C7F0AF70F1B00904297 /* plistPrimitives.cc */; };
+		69434C9D0AF7172800904297 /* XMLLoadSave.cc in Sources */ = {isa = PBXBuildFile; fileRef = 69434C9B0AF7172800904297 /* XMLLoadSave.cc */; };
+		69434CA10AF7173500904297 /* LoadSave.cc in Sources */ = {isa = PBXBuildFile; fileRef = 69434C9F0AF7173500904297 /* LoadSave.cc */; };
+		69A243DD0AFCFC62009A21D3 /* string_util.cc in Sources */ = {isa = PBXBuildFile; fileRef = 69A243DB0AFCFC62009A21D3 /* string_util.cc */; };
+		69A248060B00612A009A21D3 /* tekkotsu.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 69A247FF0B006109009A21D3 /* tekkotsu.xml */; };
+		69B98A000AFA421B00551955 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 69B989FF0AFA421B00551955 /* libxml2.dylib */; };
+		69B98A2C0AFA447700551955 /* tekkotsu.cfg in CopyFiles */ = {isa = PBXBuildFile; fileRef = 69434CF90AF7B6AD00904297 /* tekkotsu.cfg */; };
+		69CFCBB50B0557E1003F9A85 /* Config.cc in Sources */ = {isa = PBXBuildFile; fileRef = 69CFCBB30B0557E1003F9A85 /* Config.cc */; };
+		69CFCBB60B0557E1003F9A85 /* Config.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 69CFCBB40B0557E1003F9A85 /* Config.h */; };
+		69CFD15C0B058C65003F9A85 /* plistCollections.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 69CFD15B0B058C65003F9A85 /* plistCollections.h */; };
+		8DD76F650486A84900D96B5E /* main.cc in Sources */ = {isa = PBXBuildFile; fileRef = 08FB7796FE84155DC02AAC07 /* main.cc */; settings = {ATTRIBUTES = (); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		8DD76F690486A84900D96B5E /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 12;
+			dstPath = "";
+			dstSubfolderSpec = 16;
+			files = (
+				69B98A2C0AFA447700551955 /* tekkotsu.cfg in CopyFiles */,
+				69A248060B00612A009A21D3 /* tekkotsu.xml in CopyFiles */,
+				69CFCBB60B0557E1003F9A85 /* Config.h in CopyFiles */,
+				69CFD15C0B058C65003F9A85 /* plistCollections.h in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		08FB7796FE84155DC02AAC07 /* main.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cc; sourceTree = "<group>"; };
+		6918B66E0B6F2E11006B28E3 /* Makefile */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
+		69434C790AF70F1B00904297 /* plist.cc */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = plist.cc; sourceTree = "<group>"; };
+		69434C7A0AF70F1B00904297 /* plist.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = plist.h; sourceTree = "<group>"; };
+		69434C7B0AF70F1B00904297 /* plistBase.cc */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = plistBase.cc; sourceTree = "<group>"; };
+		69434C7C0AF70F1B00904297 /* plistBase.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = plistBase.h; sourceTree = "<group>"; };
+		69434C7D0AF70F1B00904297 /* plistCollections.cc */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = plistCollections.cc; sourceTree = "<group>"; };
+		69434C7F0AF70F1B00904297 /* plistPrimitives.cc */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = plistPrimitives.cc; sourceTree = "<group>"; };
+		69434C800AF70F1B00904297 /* plistPrimitives.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = plistPrimitives.h; sourceTree = "<group>"; };
+		69434C9B0AF7172800904297 /* XMLLoadSave.cc */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = XMLLoadSave.cc; sourceTree = "<group>"; };
+		69434C9C0AF7172800904297 /* XMLLoadSave.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = XMLLoadSave.h; sourceTree = "<group>"; };
+		69434C9F0AF7173500904297 /* LoadSave.cc */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = LoadSave.cc; sourceTree = "<group>"; };
+		69434CA00AF7173500904297 /* LoadSave.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = LoadSave.h; sourceTree = "<group>"; };
+		69434CA40AF71D3600904297 /* attributes.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = attributes.h; sourceTree = "<group>"; };
+		69434CF90AF7B6AD00904297 /* tekkotsu.cfg */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text; path = tekkotsu.cfg; sourceTree = "<group>"; };
+		69A243DB0AFCFC62009A21D3 /* string_util.cc */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = string_util.cc; sourceTree = "<group>"; };
+		69A243DC0AFCFC62009A21D3 /* string_util.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = string_util.h; sourceTree = "<group>"; };
+		69A244F80AFD2A7C009A21D3 /* Cloneable.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = Cloneable.h; sourceTree = "<group>"; };
+		69A247FF0B006109009A21D3 /* tekkotsu.xml */ = {isa = PBXFileReference; explicitFileType = text.plist; fileEncoding = 30; path = tekkotsu.xml; sourceTree = "<group>"; };
+		69B989FF0AFA421B00551955 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = /usr/lib/libxml2.dylib; sourceTree = "<absolute>"; };
+		69CFCBB30B0557E1003F9A85 /* Config.cc */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = Config.cc; sourceTree = "<group>"; };
+		69CFCBB40B0557E1003F9A85 /* Config.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = Config.h; sourceTree = "<group>"; };
+		69CFD15B0B058C65003F9A85 /* plistCollections.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = plistCollections.h; sourceTree = "<group>"; };
+		8DD76F6C0486A84900D96B5E /* config */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = config; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8DD76F660486A84900D96B5E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				69B98A000AFA421B00551955 /* libxml2.dylib in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		08FB7794FE84155DC02AAC07 /* config */ = {
+			isa = PBXGroup;
+			children = (
+				69434CF90AF7B6AD00904297 /* tekkotsu.cfg */,
+				69A247FF0B006109009A21D3 /* tekkotsu.xml */,
+				6918B66E0B6F2E11006B28E3 /* Makefile */,
+				69434C780AF70EEB00904297 /* Shared */,
+				08FB7795FE84155DC02AAC07 /* Source */,
+				69B989FB0AFA41DA00551955 /* Libraries */,
+				1AB674ADFE9D54B511CA2CBB /* Products */,
+			);
+			name = config;
+			sourceTree = "<group>";
+		};
+		08FB7795FE84155DC02AAC07 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				08FB7796FE84155DC02AAC07 /* main.cc */,
+			);
+			name = Source;
+			sourceTree = "<group>";
+		};
+		1AB674ADFE9D54B511CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8DD76F6C0486A84900D96B5E /* config */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		69434C780AF70EEB00904297 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				69CFCBB30B0557E1003F9A85 /* Config.cc */,
+				69CFCBB40B0557E1003F9A85 /* Config.h */,
+				69434CA40AF71D3600904297 /* attributes.h */,
+				69A244F80AFD2A7C009A21D3 /* Cloneable.h */,
+				69434C9F0AF7173500904297 /* LoadSave.cc */,
+				69434CA00AF7173500904297 /* LoadSave.h */,
+				69434C790AF70F1B00904297 /* plist.cc */,
+				69434C7A0AF70F1B00904297 /* plist.h */,
+				69434C7B0AF70F1B00904297 /* plistBase.cc */,
+				69434C7C0AF70F1B00904297 /* plistBase.h */,
+				69434C7D0AF70F1B00904297 /* plistCollections.cc */,
+				69CFD15B0B058C65003F9A85 /* plistCollections.h */,
+				69434C7F0AF70F1B00904297 /* plistPrimitives.cc */,
+				69434C800AF70F1B00904297 /* plistPrimitives.h */,
+				69434C9B0AF7172800904297 /* XMLLoadSave.cc */,
+				69434C9C0AF7172800904297 /* XMLLoadSave.h */,
+				69A243DB0AFCFC62009A21D3 /* string_util.cc */,
+				69A243DC0AFCFC62009A21D3 /* string_util.h */,
+			);
+			name = Shared;
+			path = ../../../Shared;
+			sourceTree = SOURCE_ROOT;
+		};
+		69B989FB0AFA41DA00551955 /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				69B989FF0AFA421B00551955 /* libxml2.dylib */,
+			);
+			name = Libraries;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8DD76F620486A84900D96B5E /* config */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1DEB923108733DC60010E9CD /* Build configuration list for PBXNativeTarget "config" */;
+			buildPhases = (
+				8DD76F640486A84900D96B5E /* Sources */,
+				8DD76F660486A84900D96B5E /* Frameworks */,
+				8DD76F690486A84900D96B5E /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = config;
+			productInstallPath = "$(HOME)/bin";
+			productName = config;
+			productReference = 8DD76F6C0486A84900D96B5E /* config */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		08FB7793FE84155DC02AAC07 /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = 1DEB923508733DC60010E9CD /* Build configuration list for PBXProject "config" */;
+			hasScannedForEncodings = 1;
+			mainGroup = 08FB7794FE84155DC02AAC07 /* config */;
+			projectDirPath = "";
+			targets = (
+				8DD76F620486A84900D96B5E /* config */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8DD76F640486A84900D96B5E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8DD76F650486A84900D96B5E /* main.cc in Sources */,
+				69434C810AF70F1B00904297 /* plist.cc in Sources */,
+				69434C830AF70F1B00904297 /* plistBase.cc in Sources */,
+				69434C850AF70F1B00904297 /* plistCollections.cc in Sources */,
+				69434C870AF70F1B00904297 /* plistPrimitives.cc in Sources */,
+				69434C9D0AF7172800904297 /* XMLLoadSave.cc in Sources */,
+				69434CA10AF7173500904297 /* LoadSave.cc in Sources */,
+				69A243DD0AFCFC62009A21D3 /* string_util.cc in Sources */,
+				69CFCBB50B0557E1003F9A85 /* Config.cc in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		1DEB923208733DC60010E9CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				INSTALL_PATH = "$(HOME)/bin";
+				PRODUCT_NAME = config;
+				ZERO_LINK = YES;
+			};
+			name = Debug;
+		};
+		1DEB923308733DC60010E9CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = (
+					ppc,
+					i386,
+				);
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_MODEL_TUNING = G5;
+				INSTALL_PATH = "$(HOME)/bin";
+				PRODUCT_NAME = config;
+			};
+			name = Release;
+		};
+		1DEB923608733DC60010E9CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PREPROCESSOR_DEFINITIONS = TGT_ERS7;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					/usr/include/libxml2,
+					/usr/local/include,
+					$TEKKOTSU_ROOT,
+				);
+				PREBINDING = NO;
+				SDKROOT = /Developer/SDKs/MacOSX10.4u.sdk;
+			};
+			name = Debug;
+		};
+		1DEB923708733DC60010E9CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PREPROCESSOR_DEFINITIONS = TGT_ERS7;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					/usr/include/libxml2,
+					/usr/local/include,
+					$TEKKOTSU_ROOT,
+				);
+				PREBINDING = NO;
+				SDKROOT = /Developer/SDKs/MacOSX10.4u.sdk;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1DEB923108733DC60010E9CD /* Build configuration list for PBXNativeTarget "config" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DEB923208733DC60010E9CD /* Debug */,
+				1DEB923308733DC60010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1DEB923508733DC60010E9CD /* Build configuration list for PBXProject "config" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DEB923608733DC60010E9CD /* Debug */,
+				1DEB923708733DC60010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 08FB7793FE84155DC02AAC07 /* Project object */;
+}

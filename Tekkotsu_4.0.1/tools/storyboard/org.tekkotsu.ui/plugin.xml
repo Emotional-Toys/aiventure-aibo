@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin>
+
+     <extension
+         point="org.eclipse.ui.views">
+      <category
+            name="Tekkotsu Category"
+            id="org.tekkotsu.ui.storyboard">
+      </category>
+      <view
+            name="Storyboard"
+            category="org.tekkotsu.ui.storyboard"
+            class="org.tekkotsu.ui.storyboard.views.StoryboardView"
+            id="org.tekkotsu.ui.storyboard.views.StoryboardView">
+      </view>
+      <view
+            class="org.tekkotsu.ui.storyboard.views.RuntimeView"
+            category="org.tekkotsu.ui.storyboard"
+            name="Runtime View"
+            id="org.tekkotsu.ui.storyboard.views.RuntimeView"/>
+   </extension>
+   <extension
+         point="org.eclipse.ui.perspectiveExtensions">
+      <perspectiveExtension
+            targetID="org.eclipse.ui.resourcePerspective">
+         <view
+               ratio="0.5"
+               relative="org.eclipse.ui.views.TaskList"
+               relationship="right"
+               id="org.tekkotsu.ui.storyboard.views.StoryboardView">
+         </view>
+         <view
+               ratio="0.5"
+               relationship="right"
+               relative="org.eclipse.ui.views.TaskList"
+               id="org.tekkotsu.ui.storyboard.views.RuntimeView"/>
+      </perspectiveExtension>
+   </extension>
+   <extension
+         id="perspective"
+         name="RCP Storyboard Perspective"
+         point="org.eclipse.ui.perspectives">
+      <perspective
+            icon="icons/perspective.gif"
+            class="org.tekkotsu.ui.rcp.StoryboardPerspective"
+            fixed="false"
+            name="Tekkotsu Storyboard"
+            id="org.tekkotsu.ui.rcp.StoryboardPerspective"/>
+   </extension>
+   <extension
+         point="org.eclipse.ui.editors">
+      <editor
+            icon="icons/text.gif"
+            class="org.tekkotsu.ui.rcp.editors.xml.XMLEditor"
+            name="Sample XML Editor"
+            contributorClass="org.eclipse.ui.texteditor.BasicTextEditorActionContributor"
+            id="org.tekkotsu.ui.rcp.editors.xml.XMLEditor"
+            extensions="xml,html"/>
+      <editor
+            icon="icons/perspective.gif"
+            class="org.tekkotsu.ui.rcp.editors.SimpleEditor"
+            default="true"
+            name="Sample Editor"
+            contributorClass="org.eclipse.ui.texteditor.BasicTextEditorActionContributor"
+            id="org.tekkotsu.ui.rcp.editors.SimpleEditor"/>
+   </extension>
+   <extension
+         point="org.eclipse.ui.actionSets">
+      <actionSet
+            label="File Action Set"
+            visible="true"
+            id="org.tekkotsu.ui.rcp.fileActionSet">
+         <action
+               toolbarPath="group.file"
+               label="&amp;Pick Model"
+               icon="icons/inbox.gif"
+               tooltip="Choose model for current layout"
+               class="org.tekkotsu.ui.editor.resources.OpenModelAction"
+               style="push"
+               menubarPath="file/new.ext"
+               state="false"
+               id="org.tekkotsu.ui.editor.resources.OpenModelAction"/>               
+         <action
+               toolbarPath="group.file"
+               label="&amp;Open Layout"
+               icon="icons/open.gif"
+               tooltip="Open a layout"
+               class="org.tekkotsu.ui.rcp.actions.OpenFileAction"
+               definitionId="org.tekkotsu.ui.rcp.commands.OpenFile"
+               style="push"
+               menubarPath="file/new.ext"
+               state="false"
+               id="org.tekkotsu.ui.rcp.actions.OpenFile"/>
+         <action
+               toolbarPath="group.file"
+               label="&amp;New Layout"
+               icon="icons/tekkotsu16.gif"
+               tooltip="Create a new layout"
+               class="org.tekkotsu.ui.rcp.actions.NewFileAction"
+               definitionId="org.tekkotsu.ui.rcp.commands.NewFile"
+               style="push"
+               menubarPath="file/new.ext"
+               state="false"
+               id="org.tekkotsu.ui.rcp.actions.NewFile"/>
+      </actionSet>
+   </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            description="Open a file"
+            name="Open"
+            id="org.tekkotsu.ui.rcp.commands.OpenFile"/>
+<!--      <keyBinding
+            command="org.tekkotsu.ui.rcp.commands.openFile"
+            keySequence="M1+O"/> -->
+      <command
+            description="Create a new file"
+            name="Create"
+            id="org.tekkotsu.ui.rcp.commands.NewFile"/>
+<!--      <keyBinding
+            command="org.tekkotsu.ui.rcp.commands.NewFile"
+            keySequence="M1+N"/> -->
+   </extension>
+
+   <extension
+         id="StoryboardApplication"
+         name="RCP Storyboard Application"
+         point="org.eclipse.core.runtime.applications">
+      <application>
+         <run class="org.tekkotsu.ui.rcp.StoryboardApplication"/>
+      </application>
+   </extension>
+
+   <extension
+         id="product"
+         point="org.eclipse.core.runtime.products">
+      <product
+            application="org.tekkotsu.ui.StoryboardApplication"
+            description="Tekkotsu Storyboard Viewer"
+            name="Tekkotsu Storyboard Viewer">
+         <property
+               name="appName"
+               value="Storyboard"/>
+         <property
+               name="aboutText"
+               value="Tekkotsu Storyboard Viewer"/>
+         <property
+               name="windowImages"
+               value="icons/tekkotsu16.gif,icons/Storyboard32.gif"/>
+      </product>
+   </extension>
+   
+   <extension
+         point="org.eclipse.ui.views">
+      <view
+            name="Storyboard View"
+            category="org.tekkotsu.ui.storyboard"
+            class="org.tekkotsu.ui.storyboard.views.StoryboardView"
+            id="org.tekkotsu.ui.storyboard.views.StoryboardView">
+      </view>
+      <view
+            name="Runtime View"
+            category="org.tekkotsu.ui.storyboard"
+            class="org.tekkotsu.ui.storyboard.views.RuntimeView"
+            id="org.tekkotsu.ui.storyboard.views.RuntimeView">
+      </view>
+      <view
+      		name="Image Preview"
+      		category="org.tekkotsu.ui.storyboard"
+      		class="org.tekkotsu.ui.storyboard.views.ImageView"
+      		id="org.tekkotsu.ui.storyboard.views.ImageView">
+      </view>
+   </extension>
+
+   <extension
+         point="org.eclipse.ui.editors">
+      <editor
+            class="org.tekkotsu.ui.editor.StateMachineEditor"
+            icon="icons/tekkotsu16.gif"
+            default="true"
+            name="State Machine Editor"
+            id="org.tekkotsu.ui.editor.StateMachineEditor"
+            extensions="tsl"/>
+   </extension>
+
+</plugin>

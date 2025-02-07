@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<view model="./drama.tsm">
+  <state id="Funny" label="Funny" color="#0000ff" top="68" left="47" width="52" height="34" shape="Rounded Rectangle" />
+  <state id="Pink" label="Pink" color="#ff80ff" top="14" left="37" width="50" height="20" shape="Rounded Rectangle" />
+  <state id="Follow" label="Follow" color="#02cc27" top="13" left="156" width="50" height="20" shape="Ellipse" />
+  <state id="Timer" label="Timer" color="#02cc95" top="77" left="165" width="50" height="20" shape="Rectangle" />
+  <state id="Sit" label="Sit" color="#0295cc" top="25" left="261" width="50" height="20" shape="Ellipse" />
+  <state id="Sound" label="Sound" color="#0227cc" top="99" left="229" width="50" height="20" shape="Ellipse" />
+  <state id="Down" label="Down" color="#4b02cc" top="168" left="270" width="50" height="20" shape="Ellipse" />
+  <state id="Sniff" label="Sniff" color="#ba02cc" top="186" left="167" width="50" height="20" shape="Ellipse" />
+  <state id="Up" label="Up" color="#cc0270" top="113" left="103" width="50" height="20" shape="Ellipse" />
+  <state id="Look" label="Look" color="#cc0202" top="202" left="59" width="50" height="20" shape="Ellipse" />
+  <state id="Punch" label="Punch" color="#cc7002" top="150" left="22" width="50" height="20" shape="Ellipse" />
+  <transition id="Funny--&gt;Pink" class="t_fp" label="transition15" color="#000000" top="33" left="65" width="50" height="20" shape="Ellipse" linewidth="1" />
+  <transition id="Pink--&gt;Funny" class="t_pf" label="transition19" color="#000000" top="47" left="27" width="50" height="20" shape="Ellipse" linewidth="1" />
+  <transition id="Pink--&gt;Follow" class="t_pfo" label="transition23" color="#000000" top="37" left="95" width="50" height="20" shape="Ellipse" linewidth="1" />
+  <transition id="Follow--&gt;Timer" class="t_ft" label="transition27" color="#000000" top="52" left="141" width="50" height="20" shape="Ellipse" linewidth="1" />
+  <transition id="Timer--&gt;Sit" class="t_ts" label="transition31" color="#000000" top="72" left="221" width="50" height="20" shape="Ellipse" linewidth="1" />
+  <transition id="Sit--&gt;Sound" class="t_ss" label="transition35" color="#000000" top="59" left="229" width="50" height="20" shape="Ellipse" linewidth="1" />
+  <transition id="Sound--&gt;Down" class="t_sd" label="transition39" color="#000000" top="146" left="241" width="50" height="20" shape="Ellipse" linewidth="1" />
+  <transition id="Down--&gt;Sniff" class="t_ds" label="transition43" color="#000000" top="157" left="228" width="50" height="20" shape="Ellipse" linewidth="1" />
+  <transition id="Sniff--&gt;Up" class="t_su" label="transition47" color="#000000" top="136" left="164" width="50" height="20" shape="Ellipse" linewidth="1" />
+  <transition id="Up--&gt;PunchLook" class="t_upl" label="" color="#000000" top="157" left="104" width="43" height="20" shape="Ellipse" linewidth="1" />
+</view>

@@ -1,0 +1,316 @@
+<!DOCTYPE HTML>
+<html><head>
+
+
+<!-- Header usage:
+CVS:AiboPupWWW/header.shtml
+server:/usr0/wiki.tekkotsu.org/skins/Tekkotsu.php
+server:/usr0/bugzilla/template/en/default/global/banner.html.tmpl
+server:/usr0/viewvc/templates/include/header.ezt
+ -->
+
+
+
+
+
+
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title> Tekkotsu: 
+		OPEN-R SDK Installation Guide
+	</title> 
+	<link rel="SHORTCUT ICON" href="http://www.tekkotsu.org/favicon.ico">
+	<link rel="alternate" title="CVS Activity" type="application/atom+xml" 
+href="http://www.tekkotsu.org/cvslog2web/tekkotsu-cvs.xml">
+	<link type="text/css" rel="stylesheet" 
+href="openr-install_files/doxygen.css">
+	<link type="text/css" rel="stylesheet" 
+href="openr-install_files/cvslog2web.css">
+	<link type="text/css" rel="stylesheet" 
+href="openr-install_files/tutorialcode.css">
+	<link type="text/css" rel="stylesheet" 
+href="openr-install_files/tekkotsu.css">
+<style type="text/css">
+	<!--
+	li.menu-cur-downloads a:link, li.menu-cur-downloads a:visited, li.menu-cur-downloads a:hover { text-decoration:none; color:rgb(255, 64, 64); }
+	ul.menu li.menu-cur-downloads { list-style-type: disc; color:rgb(255, 64, 64); padding:0; margin:0; }
+	-->
+</style>
+
+
+	<link type="text/css" rel="stylesheet" 
+href="openr-install_files/windows-override.css">
+
+
+	<link type="text/css" rel="stylesheet" 
+href="openr-install_files/gecko-override.css">
+
+
+
+
+
+	<script language="javascript" type="text/javascript" src="openr-install_files/scripts.js"></script>
+
+
+</head><body>
+<div id="blanket" style="display: none;" onclick="close_popup();">
+	<div style="text-align: center; font-size: 200%; color: white; 
+position: absolute; width: 100%; top: 10px;">click outside to close</div>
+	<div style="text-align: center; font-size: 200%; color: white; 
+position: absolute; width: 100%; bottom: 10px;">click outside to close</div>
+</div>
+<table style="width: 100%; text-align: left; height: 100%;" border="0" 
+cellpadding="0" cellspacing="0"><tbody>
+	<tr><td id="banner" colspan="3">
+		<a href=""><img alt="logo" src="openr-install_files/Tekkotsu_logo.png"
+ style="position: absolute; top: 3px; left: 8px;" width="147" 
+height="101"></a>
+		<div id="robot_bar"><a href="http://www.tekkotsu.org/robots"><img 
+src="openr-install_files/ers210thumb.png" style="position: relative; 
+top: 2px;" alt="Aibo ERS-2xx" height="53"><img 
+src="openr-install_files/ers7thumb.png" style="" alt="Aibo ERS-7" 
+height="50"><img src="openr-install_files/qbotplus_thumb.png" style="" 
+alt="Qwerk Recipes" height="50"><img 
+src="openr-install_files/chiara_thumb.png" style="position: relative; 
+top: 4px; left: 2px;" alt="Chiara" height="55"><img 
+src="openr-install_files/create_thumb.png" style="position: relative; 
+top: -1px;" alt="iRobot Create" height="49"><img 
+src="openr-install_files/handeye_thumb.png" style="position: relative; 
+top: 1px;" alt="HandEye" height="56"></a></div>
+		<h1><a href="http://www.tekkotsu.org/index.html">Tekkotsu</a></h1>
+		an open source project created &amp; maintained<br>
+		at <a href="http://www.cmu.edu/">Carnegie Mellon University</a>
+	</td></tr>
+	<tr><td colspan="3" class="quicklinks">
+		<div class="firstquicklink">
+			<a href="http://wiki.tekkotsu.org/">wiki</a>
+		</div><div class="quicklink">
+			<a href="http://www.cs.cmu.edu/%7Edst/Tekkotsu/Tutorial/">tutorial</a>
+		</div><div class="quicklink">
+			<a href="http://www.tekkotsu.org/dox/index.html">reference</a>
+		</div><div class="quicklink">
+			<a href="http://bugs.tekkotsu.org/">bugs</a>
+		</div><div class="quicklink">
+			<a href="http://cvs.tekkotsu.org/">CVS</a>
+		</div><div class="lastquicklink">
+			<a href="http://groups.yahoo.com/group/tekkotsu_dev">BBS</a>
+		</div>
+	</td></tr>
+
+
+
+
+
+
+
+
+<tr>
+	<td style="width: 163px;" class="menu">
+		<!-- ugly hack to keep menu td from collapsing in firefox... ? -->
+<img style="width: 163px;" src="openr-install_files/spacer.gif" 
+id="menuspacer" alt="" width="1" height="1">
+
+<ul style="top: 151px; left: 15px; position: absolute;" class="menu" 
+id="mainmenu">
+
+<li class="menu-cur-home"><a href="http://www.tekkotsu.org/index.html">homepage</a><br><br></li>
+
+<li class="menu-cur-about"><a href="http://www.tekkotsu.org/about.html">about
+ tekkotsu</a></li>
+<li class="menu-cur-robots"><a href="http://www.tekkotsu.org/robots">robots
+ &amp; hardware</a></li>
+<li class="menu-cur-samples"><a 
+href="http://www.youtube.com/user/TekkotsuRobotics">videos</a></li>
+<li class="menu-cur-education"><a 
+href="http://www.tekkotsu.org/education.html">education</a><br><br></li>
+
+<li class="menu-cur-downloads"><a 
+href="http://www.tekkotsu.org/downloads.html">downloads</a></li>
+<li class="menu-cur-gettingstarted"><a 
+href="http://www.tekkotsu.org/gettingstarted.html">getting started</a></li>
+<li class="menu-cur-development"><a 
+href="http://www.tekkotsu.org/development.html">developer&nbsp;resources</a><br><br></li>
+
+</ul>
+
+	</td>
+	<td class="maintext">
+<h2>OPEN-R SDK Installation Guide</h2>
+<p>Sony provides the OPEN-R software development kit in order to allow 
+users
+to program their AIBOs.  Tekkotsu builds on top of the capabilities of 
+OPEN-R,
+and almost entirely encapsulates the API, so that you do not need to 
+learn
+the intricacies of OPEN-R programming.  However, in order to compile any
+ code
+for the AIBO, you must first install OPEN-R and build a MIPS 
+cross-compiler.</p>
+      <h3>Prerequisites:</h3>
+      <ul>
+        <li>A UNIX compatable environment, such as Linux, Mac OS X, or
+Cygwin under Windows.</li>
+        <li><b>Cygwin users note</b>:
+You may want to refer our own <a 
+href="http://www.tekkotsu.org/cygwin-install.html">Cygwin installation 
+guide</a> to make sure you have everything you need.</li>
+        <li><b>Mac OS X Users Note:</b>
+You must have installed the BSD Subsystem package and the Developer
+Tools (XCode) in order to build the development environment</li>
+		<li><b>Ubuntu users</b>: You will need to:
+			<div class="subsection"><tt>sudo apt-get install flex gettext patch 
+bison texinfo make g++</tt></div></li>
+      </ul>
+      <h3>Files Needed:<br>
+      </h3>
+      <ul>
+		<li><a 
+href="http://www.tekkotsu.org/code/build-aibo-toolchain-3.3.6-r2.sh" 
+style="font-family: monospace;">build-aibo-toolchain-3.3.6-r2.sh</a></li>
+        <li><a href="http://www.tekkotsu.org/code/gcc-3.3.6.tar.bz2" 
+style="font-family: monospace;">gcc-3.3.6.tar.bz2</a> (22.9MB, do not
+unzip, <a href="http://www.gnu.org/software/gcc/mirrors.html">mirrors</a>)</li>
+        <li><a href="http://www.tekkotsu.org/code/binutils-2.15.tar.bz2"
+ style="font-family: monospace;">binutils-2.15.tar.bz2</a> (11.0MB, do
+not unzip, <a href="http://www.gnu.org/order/ftp.html">mirrors</a>)</li>
+        <li><a href="http://www.tekkotsu.org/code/newlib-1.15.0.tar.gz" 
+style="font-family: monospace;">newlib-1.15.0.tar.gz</a> (10.2MB, do
+not unzip, <a href="ftp://sources.redhat.com/pub/newlib/">mirror</a>)<br>
+        </li>
+	        <li><a 
+href="http://www.tekkotsu.org/code/OPEN_R_SDK-1.1.5-r5.tar.gz" 
+style="font-family: monospace;">OPEN_R_SDK-1.1.5-r5.tar.gz</a> (11.9MB, 
+do not unzip)<br>
+		Note: <b>Sony has discontinued the OPEN-R SDK</b> and is no longer 
+distributing the system binaries and header files.  This is a mirror of 
+their last known release.
+		</li>
+      </ul>
+
+
+      <h3>Installing Sony's Aibo development environment (OPEN-R SDK)</h3>
+<div class="subsection"><small>Note: we've slightly updated the compiler
+ toolchain as originally used by Sony (originally gcc 3.3.2, newlib 
+1.10.0, binutils 2.14).  We updated the toolchain because the 
+3.3.2-based one no longer builds under newer distributions due to 
+stricter language adherence in current versions of gcc.  If you run into
+ any strange errors and want to try the original toolchain 
+configuration, contact us for a 3.3.2 based build script.</small></div><br>
+        <ol>
+		<li>Check prerequisites listed above</li>
+		<li>Download all of the files listed above and place them together 
+into a temporary directory.</li>
+		<li>The build script will install the toolchain into <tt>/usr/local/OPEN_R_SDK</tt>.
+  If you prefer a different location, edit 
+build-aibo-toolchain-3.3.6-r2.sh now.</li>
+		          <ul>
+		            <li>If you change the installation directory, you will 
+need to assign the path to the <span style="font-family: monospace;">OPENRSDK_ROOT</span>
+ environment variable so Tekkotsu's build scripts will be able to find 
+it later.<br>
+		            </li>
+		          </ul>
+		<li>Run <tt>build-aibo-toolchain-3.3.6-r2.sh</tt> (and go find some 
+articles to read...)</li>
+			<ul>
+				<li>You may need to '<tt>chmod a+x build-aibo-toolchain-3.3.6-r2.sh</tt>'
+ first.</li>
+				<li>You may also need to run the script as root, or otherwise create
+ the OPEN_R_SDK directory and ensure your user account write access.</li>
+			</ul>
+            <li>Your target directory (i.e. <span style="font-family: 
+monospace;">/usr/local/OPEN_R_SDK</span>)
+should now contain:<span style="font-family: monospace;"><br>
+OPEN_R/&nbsp;&nbsp; include/&nbsp; &nbsp;lib/&nbsp;&nbsp;&nbsp;&nbsp;
+mipsel-linux/ </span><br style="font-family: monospace;">
+              <span style="font-family: monospace;">bin/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+info/&nbsp;&nbsp;&nbsp;&nbsp;
+ &nbsp;man/&nbsp;&nbsp;&nbsp;&nbsp;
+share/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></li>
+        </ol>
+      <p>If you are interested in
+experimenting with the base SDK, you should visit the <a 
+href="http://www.ensta.fr/%7Ebaillie/openr_tutorial.html">OPEN-R
+tutorial from ENSTA University</a>.&nbsp; The Tekkotsu framework will
+handle almost all interaction with the system for you, so this will be
+primarily of interest if you want to edit the low-level portions of the
+framework itself</p>
+<p>That's all folks!</p>
+      </td>
+
+
+	<td class="sectionindex">
+		<h3 class="news">Downloads</h3>
+<div class="majorhr"></div>
+<div style="width: 195px; top: 185px; left: 1119px; position: absolute;"
+ id="index" class="sectionindextext">
+	<h4 class="news">Files:</h4>
+	<div class="minorhr"></div>
+	<a href="http://www.tekkotsu.org/code/Tekkotsu_4.0.1.tar.gz">Current 
+Release</a><br>
+	<a href="http://www.tekkotsu.org/cvsusage.html">CVS Instructions</a><br>
+	<a href="http://www.tekkotsu.org/media/Tekkotsu_doc_4.0.1.tar.gz">Reference
+ Docs</a><br>
+	<a href="http://www.tekkotsu.org/downloads.html#add-ons">Add Ons</a><br>
+	<div class="minorhr"></div>
+	<br>
+	<a href="http://www.tekkotsu.org/downloads.html">Tekkotsu Installation</a><br>
+	
+	
+	<h4 class="news">Helper Guides:</h4>
+	<div class="minorhr"></div>
+	<a href="http://www.tekkotsu.org/asus_setup.html">Asus EeePC Setup</a><br>
+	<a class="current" href="http://www.tekkotsu.org/openr-install.html">Aibo/Open-R
+ Installation</a><br>
+	
+	<a href="http://www.tekkotsu.org/mirage.html">Mirage Setup and Usage</a><br>
+	
+	<br>
+	<a href="http://www.tekkotsu.org/xcode_setup.html">Mac: XCode Setup</a><br>
+	<a href="http://www.tekkotsu.org/cygwin-install.html">Windows: Install 
+Cygwin</a><br>
+	<div class="minorhr"></div>
+	<br>
+	
+	
+	<a href="http://www.tekkotsu.org/VersionHistory.html">Version History</a><br>
+	
+	
+</div>      
+
+	</td>
+</tr>
+  </tbody>
+</table>
+
+
+<div id="tracker">Last modified: 2009-02-07
+<script language="javascript" type="text/javascript">
+<!--
+s="na";c="na";j="na";f=""+escape(document.referrer)
+s=screen.width;v=navigator.appName
+if (v != "Netscape") {c=screen.colorDepth}
+else {c=screen.pixelDepth}
+j=navigator.javaEnabled()
+function pr(n) {document.write(n);}
+NS2Ch=0
+if (navigator.appName == "Netscape" &&
+navigator.appVersion.charAt(0) == "2") {NS2Ch=1}
+if (NS2Ch == 0) {
+r="size="+s+"&colors="+c+"&referer="+f+"&java="+j+"&stamp="+(new Date()).getTime()+""
+pr("<a href='http://validator.w3.org/check?uri=referer'><IMG BORDER='0' style='vertical-align:bottom' width='12' height='12' SRC='http://aibo2.boltz.cs.cmu.edu/head.gif?"+r+"'><\/a>");}
+//-->
+</script><a href="http://validator.w3.org/check?uri=referer"><img 
+style="vertical-align: bottom;" src="openr-install_files/head.gif" 
+border="0" width="12" height="12"></a><noscript><a href="http://validator.w3.org/check?uri=referer"><img style="vertical-align:bottom" src="http://aibo5.boltz.cs.cmu.edu/head.gif" border="0" width="12" height="12" alt=""></a></noscript>
+</div>
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script><script src="openr-install_files/ga.js" type="text/javascript"></script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-697544-1");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+</body></html>

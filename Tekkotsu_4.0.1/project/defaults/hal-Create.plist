@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0"><dict>
+<!--======== CommPorts ========-->
+<!--Communication portals for use by device drivers-->
+<key>CommPorts</key> <dict></dict>
+
+<!--======== Drivers ========-->
+<!--Settings for device drivers-->
+<key>Drivers</key> <dict>
+	<!--======== Create ========-->
+	<key>Create</key> <dict>
+		<!--.type: Stores the typename of the class so it can be re-instantiated on load.
+		** Do not edit ** -->
+		<key>.type</key> <string>Create</string>
+		
+		<!--CommPort: The name of the comm port where output will be sent-->
+		<key>CommPort</key> <string>/dev/ttyAM1</string>
+	</dict>
+	
+	<!--======== TeRK ========-->
+	<key>TeRK</key> <dict>
+		<!--.type: Stores the typename of the class so it can be re-instantiated on load.
+		** Do not edit ** -->
+		<key>.type</key> <string>TeRK</string>
+	</dict>
+</dict>
+
+<!--======== Vision ========-->
+<!--Settings for the loading of camera frames-->
+<key>Vision</key> <dict>
+	<!--Source: Names a DeviceDriver instance from which data will be taken.
+	Can be either just the driver name (use first data source), or 'DriverName.QueueName'.
+	Available data sources: TeRK.Camera -->
+	<key>Source</key> <string>TeRK</string>
+</dict>
+</dict></plist>

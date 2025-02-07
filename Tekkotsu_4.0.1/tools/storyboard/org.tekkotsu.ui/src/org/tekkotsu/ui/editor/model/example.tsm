@@ -1,0 +1,57 @@
+WalkToTargetNode (no subnodes) http://tekkotsu.no-ip.org/dox/classWalkToTargetNode.html
+!msg spider  Walk To Target (ball)
+WalkToTargetNode Walk To Target (ball) @ 0x61412450
+
+<model>
+	<state id="Walk To TargetNode (ball) @ 0x61412450" class="WalkToTargetNode" />
+</model>
+----------------------------
+ExploreMachine http://tekkotsu.no-ip.org/dox/ExploreMachine_8cc-source.html#l00011
+!msg Explore State Machine
+ExploreMachine Explore State Machine @ 0x6144c6b8
+ WalkNode Explore State Machine::move @ 0x6144c728
+   Transitions: CompareTrans{Explore State Machine::turn@0x6144c778}
+ WalkNode Explore State Machine::turn @ 0x6144c778
+   Transitions: TimeOutTrans{Explore State Machine::move@0x6144c728}
+
+<model>
+	<state class="ExploreMachine" id="Explore State Machine">
+		<state id="Explore State Machine::move" class="WalkNode" />
+		<state id="Explore State Machine::turn @ 0x6144c778" class="WalkNode" />
+		<transition id="Explore State Machine::move @ 0x6144c728 --- Explore State Machine::move @ 0x6144c778" class="CompareTrans">
+			<source>Explore State Machine::move @ 0x6144c728</source>
+			<dest>Explore State Machine::move @ 0x6144c728</dest>		
+		</transition>
+		<transition id="Explore State Machine::turn @ 0x6144c778 --- Explore State Machine::move @ 0x6144c728">
+			<source>Explore State Machine::turn @ 0x6144c778</source>
+			<dest>Explore State Machine::move @ 0x6144c728</dest>
+		</transition>
+	</state>
+</model>
+----------------------------
+BanditMachine http://tekkotsu.no-ip.org/dox/BanditMachine_8h-source.html#l00044
+!msg Bandit State Machine
+BanditMachine Bandit State Machine @ 0x614a9e20
+ WaitNode Wait @ 0x61450aa0
+   Transitions: TimeOutTrans{Decide@0x61450bd0}
+ PressNode Left @ 0x614a9f98
+   Transitions: CompareTrans{Wait@0x61450aa0}, TimeOutTrans{BadPressLeft@0x61450c90}
+ PressNode Right @ 0x61450b68
+   Transitions: CompareTrans{Wait@0x61450aa0}, TimeOutTrans{BadPressRight@0x61450ce0}
+----------------------------
+PaceTargetsMachine http://tekkotsu.no-ip.org/dox/PaceTargetsMachine_8cc-source.html#l00013
+!msg Pace Targets State Machine
+PaceTargetsMachine Pace Targets State Machine @ 0x6144c728
+ StateNode Pace Targets State Machine::TurnAround @ 0x6144c770
+   Transitions: TimeOutTrans{Pace Targets State Machine::ExplGroup@0x6144c7c0}
+ GroupNode Pace Targets State Machine::ExplGroup @ 0x6144c7c0
+   ExploreMachine Pace Targets State Machine::ExplGroup::Explore @ 0x6144c800
+     WalkNode Pace Targets State Machine::ExplGroup::Explore::move @ 0x61450c90
+       Transitions: CompareTrans{Pace Targets State Machine::ExplGroup::Explore::turn@0x61450ce0}
+     WalkNode Pace Targets State Machine::ExplGroup::Explore::turn @ 0x61450ce0
+       Transitions: TimeOutTrans{Pace Targets State Machine::ExplGroup::Explore::move@0x61450c90}
+   PlayMotionSequenceNode Pace Targets State Machine::ExplGroup::PanHead @ 0x6144c850
+   Transitions: VisualTargetTrans{Pace Targets State Machine::Chase@0x6144c898}
+ WalkToTarget Pace Targets State Machine::Chase @ 0x6144c898
+   Transitions: TimeOutTrans{Pace Targets State Machine::ExplGroup@0x6144c7c0}, VisualTargetCloseTrans{Pace Targets State Machine::TurnAround@0x6144c770}
+----------------------------

@@ -1,0 +1,4 @@
+#!/bin/sh
+mntmem;
+cat /mnt/memstick/open-r/emon.log;
+umntmem;

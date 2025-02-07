@@ -1,0 +1,69 @@
+<!DOCTYPE event [
+
+<!ELEMENT event (#PCDATA|#CDATA|param*|(statestart|statestop|fire)*)>
+<!ELEMENT statestart (EMPTY)>
+<!ELEMENT statestop (EMPTY)>
+<!ELEMENT fire (EMPTY)>
+<!ELEMENT param (EMPTY)>
+
+<!ATTLIST event type (transition|log|userlog|image|webcam) #REQUIRED>
+<!ATTLIST event egid CDATA #IMPLIED>
+<!ATTLIST event sid CDATA #REQUIRED>
+<!ATTLIST event etid (A|D|S) #IMPLIED>
+<!ATTLIST event time CDATA #REQUIRED>
+<!ATTLIST event voff CDATA #IMPLIED>
+<!ATTLIST event format CDATA #IMPLIED>
+<!ATTLIST event bytes CDATA #IMPLIED>
+
+<!ATTLIST param name CDATA #REQUIRED>
+<!ATTLIST param value CDATA #REQUIRED>
+
+<!ATTLIST fire id CDATA #REQUIRED>
+<!ATTLIST fire time CDATA #REQUIRED>
+<!ATTLIST statestart id CDATA #REQUIRED>
+<!ATTLIST statestart time CDATA #REQUIRED>
+<!ATTLIST statestop id CDATA #REQUIRED>
+<!ATTLIST statestop time CDATA #REQUIRED> 
+
+]>
+
+note:
+egid = group id
+sid = state(source) id
+etid = type id
+time = timewstamp
+voff = vertical offset (for state log)
+
+<event type="transition">
+	<statestart id="xxx" time="123" />
+	<statestop id="xxx" time="123" />
+	<fire id="xxx" time="123" />
+</event>
+
+//TODO: send message string along with events
+// TYPE option : Activate normal - yellow tooltip
+//				 Deactivate red cross - red tooltip
+//				 Status blue underscore - blue tooltip
+				 
+				  group	 	 source	   type
+<event type="log" egid="xxx" sid="xxx" etid="A|D|S" time="123">
+	<param name="xxx" value="xxx" />
+	<param name="xxx" value="xxx" />
+	<message>stringblahblah</message>
+</event>
+
+event group from system event egid:
+	- button (ico: button)
+	- timer (clock)
+	- motion (...)
+	- locomotion (running shoe)
+	- audio (musical note)
+	- pinkball activate/deactivate (not status)
+	- emergency stop (stop sign)
+	- text message (cap T)
+
+<event type="userlog" sid="stateid" icon="filename.png" time="123" voff="123">user message here</event>
+
+<event type="image" sid="stateid" format="png" bytes="128" time="123">128_bytes_later</event>
+
+<event type="webcam" sid="stateid" time="123" />

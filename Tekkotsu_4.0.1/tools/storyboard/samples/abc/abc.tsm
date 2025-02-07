@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model>
+  <state id="alpha" class="StateNode" />
+  <state id="bravo" class="StateNode" />
+  <state id="charlie" class="StateNode" />
+  <transition id="{alpha}--TimeOutTrans-->{bravo}" class="TimeOutTrans">
+  	<source>alpha</source>
+  	<destination>bravo</destination>
+  </transition>
+  <transition id="{bravo}--TimeOutTrans-->{charlie}" class="TimeOutTrans">
+  	<source>bravo</source>
+  	<destination>charlie</destination>
+  </transition>
+  <transition id="{charlie}--TimeOutTrans-->{alpha}" class="TimeOutTrans">
+  	<source>charlie</source>
+  	<destination>alpha</destination>
+  </transition>
+</model>

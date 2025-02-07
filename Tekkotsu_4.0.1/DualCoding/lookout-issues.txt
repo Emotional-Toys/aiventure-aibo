@@ -1,0 +1,40 @@
+
+Lookout design issues:
+
+Request format:
+
+- A request should include a scheduling policy:
+   * "time critical within n msec" (for obstacle avoidance; wall following)
+   * "as time permits" (for object search)
+
+Since the Pilot controls body motion, Lookout needs to be sensitive to
+what Pilot is doing.
+
+================================================================
+
+TRACK
+Current: look for largest region of specified color; project to ground; point head there
+
+Problems:
+  - do this in camera space so don't assume region is on ground (Ethan fixed this?)
+  - what if we want to track a region other than the biggest one?
+  - jitter when moving makes it hard to stay focused on an object, but Kei has done it
+  - need a policy to reacquire target when lost
+  - should track last position and area of target so we can glance away and come back
+
+================================================================
+
+FIND
+
+Current: continuous scan; look for region of specified color
+
+Problems:
+  - what if you want to find blobs of two different colors?  don't want two scans
+  - scan runs to completion; then has to come back to take snaps; better to snap as we go
+  - we might prefer to use a list of gaze points so we can do shape extraction
+  - offer predefined scan patterns, e.g., middle-foreground for lab10
+  - need policy on what can move (head, body rotation, or full roaming search)
+  - scan pattern should be more aggressive than a simple near-to-far
+
+================================================================
+

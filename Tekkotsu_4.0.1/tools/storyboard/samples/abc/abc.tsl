@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<view model="./abc.tsm">
+  <state id="alpha" label="alpha" color="#ff0000" top="14" left="84" width="48" height="43" shape="Ellipse" />
+  <state id="bravo" label="bravo" color="#80ff00" top="70" left="184" width="43" height="43" shape="Ellipse" />
+  <state id="charlie" label="charlie" color="#004080" top="130" left="38" width="47" height="43" shape="Ellipse" />
+  <transition id="{alpha}--TimeOutTrans--&gt;{bravo}" class="t_ab" label="transition67" color="#000000" top="73" left="124" width="50" height="20" shape="Ellipse" linewidth="1" />
+  <transition id="{bravo}--TimeOutTrans--&gt;{charlie}" class="t_bc" label="transition71" color="#000000" top="88" left="112" width="50" height="20" shape="Ellipse" linewidth="1" />
+  <transition id="{charlie}--TimeOutTrans--&gt;{alpha}" class="t_ca" label="transition75" color="#000000" top="85" left="87" width="50" height="20" shape="Ellipse" linewidth="1" />
+</view>

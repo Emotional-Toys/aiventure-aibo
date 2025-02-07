@@ -1,0 +1,12 @@
+/CommPort.h/1.12/Sun Nov 18 06:47:06 2007//Ttekkotsu-4_0-branch
+/DataSource.h/1.8/Tue Jul 24 03:46:35 2007//Ttekkotsu-4_0-branch
+/DeviceDriver.h/1.7/Thu Aug 23 01:12:53 2007//Ttekkotsu-4_0-branch
+/EntryPoint.h/1.1/Thu Sep 28 20:42:51 2006//Ttekkotsu-4_0-branch
+/LoadDataThread.cc/1.18/Fri Oct 12 16:55:04 2007//Ttekkotsu-4_0-branch
+/LoadDataThread.h/1.16/Fri Nov  9 19:01:15 2007//Ttekkotsu-4_0-branch
+/Makefile.local/1.13/Thu Nov  1 20:27:01 2007//Ttekkotsu-4_0-branch
+/MotionHook.h/1.3/Mon Aug 27 22:14:16 2007//Ttekkotsu-4_0-branch
+/SoundPlayThread.cc/1.2/Fri Oct 12 16:55:04 2007//Ttekkotsu-4_0-branch
+/SoundPlayThread.h/1.2/Fri Feb 16 20:18:23 2007//Ttekkotsu-4_0-branch
+/minisim.h/1.11/Thu Nov 15 17:25:10 2007//Ttekkotsu-4_0-branch
+D

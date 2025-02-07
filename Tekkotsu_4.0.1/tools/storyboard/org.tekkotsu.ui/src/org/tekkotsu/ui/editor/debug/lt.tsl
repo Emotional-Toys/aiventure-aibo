@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<view model="lt.tsm">
+  <state id="Logging Test" label="Logging Test" color="#ffc400" top="17" left="67" width="171" height="20" shape="Rectangle" />
+  <state id="Waiting" label="Waiting" color="#00ff00" top="165" left="150" width="50" height="20" shape="Rectangle" />
+  <state id="Image" label="Image" color="#00ffff" top="136" left="76" width="50" height="20" shape="Rectangle" />
+  <state id="Message" label="Message" color="#60ff60" top="93" left="111" width="50" height="20" shape="Rectangle" />
+  <state id="Webcam" label="Webcam" color="#ff0000" top="56" left="160" width="50" height="20" shape="Rectangle" />
+  <transition id="{Waiting}--TextMsgTrans--&gt;{Image}" class="TextMsgTrans" label="transition9" color="#000000" top="130" left="136" width="50" height="20" shape="Ellipse" linewidth="1" />
+  <transition id="{Waiting}--TextMsgTrans--&gt;{Message}" class="TextMsgTrans" label="transition13" color="#000000" top="118" left="160" width="50" height="20" shape="Ellipse" linewidth="1" />
+  <transition id="{Waiting}--TextMsgTrans--&gt;{Webcam}" class="TextMsgTrans" label="transition17" color="#000000" top="109" left="181" width="50" height="20" shape="Ellipse" linewidth="1" />
+  <transition id="{Image}--NullTrans--&gt;{Waiting}" class="NullTrans" label="transition21" color="#000000" top="168" left="120" width="50" height="20" shape="Ellipse" linewidth="1" />
+  <transition id="{Message}--NullTrans--&gt;{Waiting}" class="NullTrans" label="transition25" color="#000000" top="138" left="126" width="50" height="20" shape="Ellipse" linewidth="1" />
+  <transition id="{Webcam}--NullTrans--&gt;{Waiting}" class="NullTrans" label="transition29" color="#000000" top="111" left="141" width="50" height="20" shape="Ellipse" linewidth="1" />
+</view>
+

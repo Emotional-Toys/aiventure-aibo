@@ -1,0 +1,13 @@
+/Environment.conf/1.33.2.1/Sun Feb  8 03:34:44 2009//Ttekkotsu-4_0-branch
+/Makefile/1.155.2.1/Sun Feb  8 03:34:44 2009//Ttekkotsu-4_0-branch
+/StartupBehavior.cc/1.80/Sun Aug  5 16:16:05 2007//Ttekkotsu-4_0-branch
+/StartupBehavior.h/1.13/Wed Jun  1 05:48:07 2005//Ttekkotsu-4_0-branch
+/StartupBehavior_SetupBackgroundBehaviors.cc/1.31/Sun Aug  5 16:16:05 2007//Ttekkotsu-4_0-branch
+/StartupBehavior_SetupFileAccess.cc/1.12/Sun Aug  5 16:16:05 2007//Ttekkotsu-4_0-branch
+/StartupBehavior_SetupModeSwitch.cc/1.61/Thu Nov 22 00:06:52 2007//Ttekkotsu-4_0-branch
+/StartupBehavior_SetupStatusReports.cc/1.8/Sun Aug  5 16:16:06 2007//Ttekkotsu-4_0-branch
+/StartupBehavior_SetupTekkotsuMon.cc/1.32/Wed Nov 21 20:57:12 2007//Ttekkotsu-4_0-branch
+/StartupBehavior_SetupVision.cc/1.33/Sun Aug  5 16:16:06 2007//Ttekkotsu-4_0-branch
+/StartupBehavior_SetupWalkEdit.cc/1.15/Wed Nov 21 22:53:19 2007//Ttekkotsu-4_0-branch
+/entry.h/1.1/Sat Mar  1 20:53:46 2003//Ttekkotsu-4_0-branch
+D

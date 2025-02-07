@@ -1,0 +1,18 @@
+spider state machine transition message:
+<event type="transition">
+	<statestart id="xxx" time="123" />
+	<statestop id="xxx" time="123" />
+	<fire id="xxx" time="123" />
+</event>
+
+				  group	 	 source	   type
+<event type="log" egid="xxx" sid="xxx" etid="A|D|S" time="123">
+	<param name="xxx" value="xxx" />
+	<param name="xxx" value="xxx" />
+</event>
+
+<event type="userlog" sid="stateid" icon="filename.png" time="123" voff="15">user message here</event>
+
+<event type="image" sid="stateid" format="png" bytes="128" time="123">128_bytes_later</event>
+
+<event type="webcam" sid="stateid" time="123" />

@@ -1,0 +1,53 @@
+#!/bin/sh
+
+if [ $# -lt 2 -o "$1" = "-h" -o "$1" = "--help" ] ; then
+	echo "Usage: $0 ip-file scale-file";
+	echo "  ip-file format should be tab deliminated:"
+	echo "    first column is name,"
+	echo "    second column is the name of the chain the interest point is in,"
+	echo "    third column is the link number the interest point is relative to,"
+	echo "    fourth column is x value,"
+	echo "    fifth column is y,"
+	echo "    sixth column is z."
+	exit 2;
+fi
+
+if [ ! -r "$1" ] ; then
+	echo "Could not read file '$1'";
+	exit 1;
+fi
+
+if [ ! -r "$2" ] ; then
+	echo "Could not read file '$2'";
+	exit 1;
+fi
+
+lines=`cat "$1" | wc -l`;
+echo "[InterestPoints]";
+echo "Length: $lines";
+echo "";
+
+exec 6< "$1"
+line=1;
+
+for ((line=1;lines-line+1;line++)) ; do
+	read -u 6 -d "	" name;
+	read -u 6 -d "	" chain;
+	read -u 6 -d "	" link;
+	read -u 6 -d "	" x;
+	read -u 6 -d "	" y;
+	read -u 6 z;
+	scale=`grep $chain "$2" | sed "s/^[^0-9.]*//"`
+	x=`echo "scale=3; $x / $scale" | bc`
+	y=`echo "scale=3; $y / $scale" | bc`
+	z=`echo "scale=3; $z / $scale" | bc`
+	echo "[InterestPoint$line]";
+	echo "   name: $name";
+	echo "  chain: $chain";
+	echo "   link: $link";
+	echo "      x: $x";
+	echo "      y: $y";
+	echo "      z: $z";
+done
+
+exec 6<&-

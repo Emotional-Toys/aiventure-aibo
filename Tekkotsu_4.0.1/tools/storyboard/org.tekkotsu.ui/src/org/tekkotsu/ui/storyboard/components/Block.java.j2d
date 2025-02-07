@@ -1,0 +1,82 @@
+/*
+ * Created on Nov 11, 2004
+ */
+package org.tekkotsu.ui.storyboard.components;
+
+import java.awt.Color;
+import java.awt.Component;
+import java.awt.Graphics;
+import java.awt.Rectangle;
+
+import org.tekkotsu.ui.editor.model.StateNodeModel;
+import org.tekkotsu.ui.storyboard.model.BlockModel;
+
+/**
+ * @author asangpet
+ *
+ */
+public class Block extends Component {
+	static final long serialVersionUID = 0xACAC0003;
+	
+	boolean active = false;
+	Color baseColor, fgColor, bgColor;
+	
+	BlockModel model;
+	StateNodeModel state;
+	int offset = 20;
+	int metric = 8;
+	
+	public Block() {
+		super();
+		setColor(new Color(220,220,220));
+	}
+	
+	public Block(BlockModel model, StateNodeModel state) {
+		this.model = model;
+		this.state = state;
+		org.eclipse.draw2d.geometry.Rectangle bound = state.getConstraint();		
+		setBounds(model.getStart()*metric+offset,bound.y,(model.getEnd()-model.getStart())*metric+1,bound.height);
+		org.eclipse.swt.graphics.Color c = state.getColor();
+		setColor(new Color(c.getRed(), c.getGreen(), c.getBlue()));
+	}
+	
+	public void setColor(Color c) {
+		baseColor = new Color(c.getRed(),c.getGreen(),c.getBlue());
+		setActive(active);
+	}
+
+	public void setActive(boolean b) {
+		active = b;		
+		Color c = baseColor;
+		if (active) {
+			bgColor = (new Color(c.getRed(),c.getGreen(),c.getBlue(),220));
+			if (c.getRed()+c.getGreen()+c.getBlue()>250)
+				fgColor = Color.BLACK;
+			else 
+				fgColor = Color.lightGray;
+		} else {
+			fgColor = (new Color(c.getRed(),c.getGreen(),c.getBlue(),150));
+			bgColor = (new Color(c.getRed(),c.getGreen(),c.getBlue(),80));			
+		}
+	}
+	
+	public void paint(Graphics g2d) {
+		//Graphics2D g2d = (Graphics2D)gr;
+		Rectangle bound = this.getBounds();		
+		//g2d.clearRect(0,0,bound.width,bound.height);
+		g2d.setColor(bgColor);		
+		g2d.fillRect(0,0,bound.width,bound.height);
+		g2d.setColor(fgColor);
+		g2d.drawRect(0,0,bound.width-1,bound.height-1);
+		String label = state.getLabel();
+		if (label==null) label = state.getId();
+		int swidth = g2d.getFontMetrics().stringWidth(label);
+		g2d.drawString(label,(bound.width-swidth)/2,bound.height/2);
+	}
+	/**
+	 * @return Returns the model.
+	 */
+	public BlockModel getModel() {
+		return model;
+	}
+}

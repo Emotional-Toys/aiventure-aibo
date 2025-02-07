@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0"><dict>
+<!--======== Drivers ========-->
+<!--Settings for device drivers-->
+<key>Drivers</key> <dict>
+	
+	<!--======== Logged ========-->
+	<key>Logged</key> <dict>
+		<!--.type: Stores the typename of the class so it can be re-instantiated on load.
+		** Do not edit ** -->
+		<key>.type</key> <string>LoggedData</string>
+	</dict>
+	
+	<!--======== Camera ========-->
+	<key>Camera</key> <dict>
+		<!--.type: Stores the typename of the class so it can be re-instantiated on load.
+		** Do not edit ** -->
+		<key>.type</key> <string>Camera</string>
+	</dict>
+</dict>
+
+<!--======== Vision ========-->
+<!--Settings for the loading of camera frames-->
+<key>Vision</key> <dict>
+	<!--Source: Names a DeviceDriver instance from which data will be taken.
+	Can be either just the driver name (use first data source), or 'DriverName.QueueName'.
+	Available data sources: Camera.iSight Logged.Camera -->
+	<key>Source</key> <string>Camera</string>
+</dict>
+</dict></plist>

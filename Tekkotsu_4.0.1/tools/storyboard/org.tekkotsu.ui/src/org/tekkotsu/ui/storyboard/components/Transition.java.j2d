@@ -1,0 +1,153 @@
+/*
+ * Created on Nov 17, 2004
+ */
+package org.tekkotsu.ui.storyboard.components;
+
+import java.awt.Color;
+import java.awt.Component;
+import java.awt.Graphics;
+import java.awt.Polygon;
+import java.awt.Rectangle;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
+import org.tekkotsu.ui.editor.model.MultiTransitionModel;
+import org.tekkotsu.ui.editor.model.SourceTransitionModel;
+import org.tekkotsu.ui.editor.model.StateNodeModel;
+import org.tekkotsu.ui.editor.model.ViewModel;
+import org.tekkotsu.ui.storyboard.model.TransitionModel;
+
+/**
+ * @author asangpet
+ *
+ */
+public class Transition extends Component {
+	static final long serialVersionUID = 0xACAC0004;
+	
+	
+	boolean active = false;
+	Color baseColor, fgColor, bgColor;
+	
+	TransitionModel model;
+	MultiTransitionModel trans;
+	org.tekkotsu.ui.editor.model.TransitionModel etrans;
+	List nodeList;
+	int offset = 20;
+	int metric = 8;
+	
+	public Transition() {
+		super();
+		setColor(new Color(0,0,0));
+	}
+	
+	public Transition(TransitionModel model, MultiTransitionModel trans) {
+		this.model = model;
+		this.trans = trans;
+		//org.eclipse.draw2d.geometry.Rectangle bound = trans.getConstraint();		
+		ViewModel view = (ViewModel)trans.getParent();
+		SourceTransitionModel strans = (SourceTransitionModel)trans.getSource();
+		int ymin=Integer.MAX_VALUE;
+		int ymax=Integer.MIN_VALUE;
+		List nodes = new ArrayList();
+		nodes.addAll(strans.getSourceNodes());
+		nodes.addAll(strans.getDestNodes());
+		nodeList = new ArrayList();		
+		Iterator iter = nodes.iterator();
+		while (iter.hasNext()) {
+			StateNodeModel state = (StateNodeModel)view.getPartChild((String)iter.next());
+			nodeList.add(state);
+			int top = state.getConstraint().y;
+			int bottom = state.getConstraint().y+state.getConstraint().height;
+			if (top<ymin) ymin=top;
+			if (bottom>ymax) ymax=bottom;
+		}
+		
+		int xoff = model.getStart()*metric+offset;
+		setBounds(xoff-3,ymin,7,ymax-ymin);
+
+		//org.eclipse.swt.graphics.Color c = trans.getColor();
+		//setColor(new Color(c.getRed(), c.getGreen(), c.getBlue()));		
+		setColor(Color.black);
+	}
+
+	public Transition(TransitionModel model, org.tekkotsu.ui.editor.model.TransitionModel trans) {
+		this.model = model;
+		this.etrans = trans;
+		//org.eclipse.draw2d.geometry.Rectangle bound = trans.getConstraint();		
+		ViewModel view = (ViewModel)trans.getParent();		
+		SourceTransitionModel strans = (SourceTransitionModel)trans.getSourceModel();
+		int ymin=Integer.MAX_VALUE;
+		int ymax=Integer.MIN_VALUE;
+		List nodes = new ArrayList();
+		nodes.addAll(strans.getSourceNodes());
+		nodes.addAll(strans.getDestNodes());
+		Iterator iter = nodes.iterator();
+		while (iter.hasNext()) {
+			StateNodeModel state = (StateNodeModel)view.getPartChild((String)iter.next());
+			int top = state.getConstraint().y;
+			int bottom = state.getConstraint().y+state.getConstraint().height;
+			if (top<ymin) ymin=top;
+			if (bottom>ymax) ymax=bottom;
+		}
+		
+		int xoff = model.getStart()*metric+offset;
+		setBounds(xoff-3,ymin,7,ymax-ymin);
+
+		setColor(Color.black);		
+	}	
+	
+	public void setColor(Color c) {
+		baseColor = c;
+		setActive(active);
+	}
+
+	public void setActive(boolean b) {
+		active = b;		
+		Color c = baseColor;
+		if (active) {
+			bgColor = c;
+			fgColor = Color.RED;
+		} else {
+			fgColor = (new Color(c.getRed(),c.getGreen(),c.getBlue(),250));
+			bgColor = (new Color(c.getRed(),c.getGreen(),c.getBlue(),220));			
+		}
+	}
+	
+	public void paint(Graphics g2d) {
+		//Graphics2D g2d = (Graphics2D)gr;
+		Rectangle bound = this.getBounds();		
+		
+		g2d.setColor(bgColor);	
+		g2d.drawLine(3,0,3,bound.height);
+		g2d.setColor(fgColor);
+		Polygon p = new Polygon();
+		int[] xp = new int[] {0,3,6,3};
+		int k=bound.height/2;		
+		int[] yp = new int[] {k,k-3,k,k+3};
+		//g2d.fillPolygon(xp,yp,4);
+		
+		if (nodeList!=null) {
+			Iterator iter = nodeList.iterator();
+			while (iter.hasNext()) {
+				StateNodeModel state = (StateNodeModel)iter.next();
+				org.eclipse.draw2d.geometry.Rectangle rect = state.getConstraint();
+				int yoff = (rect.y-bound.y)+rect.height/2;
+				int[] ypoints = new int[] {yoff,yoff-3,yoff,yoff+3};
+				g2d.fillPolygon(xp,ypoints,4);
+			}
+		}
+		//g2d.fillOval(0,bound.height/2,6,6);
+		//String label = trans.getLabel();
+		//if (label==null) label = trans.getId();
+		//int swidth = g2d.getFontMetrics().stringWidth(label);
+		//g2d.drawString(label,(bound.width-swidth)/2,bound.height/2);
+	}
+	/**
+	 * @return Returns the model.
+	 */
+	public TransitionModel getModel() {
+		return model;
+	}
+	
+}

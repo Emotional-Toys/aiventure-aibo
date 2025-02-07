@@ -1,0 +1,49 @@
+#!/bin/sh
+
+#!/bin/sh
+
+if [ $# -lt 2 -o "$1" = "-h" -o "$1" = "--help" ] ; then
+	echo "Usage: $0 ip-file scale-file [filename-prefix]";
+	echo "  ip-file format should be tab deliminated:"
+	echo "    first column is name,"
+	echo "    second column is the name of the chain the interest point is in,"
+	echo "    third column is the link number the interest point is relative to,"
+	echo "    fourth column is x value,"
+	echo "    fifth column is y,"
+	echo "    sixth column is z."
+	exit 2;
+fi
+
+if [ ! -r "$1" ] ; then
+	echo "Could not read file '$1'";
+	exit 1;
+fi
+
+if [ ! -r "$2" ] ; then
+	echo "Could not read file '$2'";
+	exit 1;
+fi
+
+prefix="$3"
+
+lines=`cat "$1" | wc -l`;
+exec 6< "$1"
+line=1;
+
+rm -f `cut -f 2 "$1" | sort | uniq | sed "s/^/$prefix/" | sed "s/\$/.txt/"`;
+
+for ((line=1;lines-line+1;line++)) ; do
+	read -u 6 -d "	" name;
+	read -u 6 -d "	" chain;
+	read -u 6 -d "	" link;
+	read -u 6 -d "	" x;
+	read -u 6 -d "	" y;
+	read -u 6 z;
+	scale=`grep $chain "$2" | sed "s/^[^0-9.]*//"`
+	x=`echo "scale=3; $x / $scale" | bc`
+	y=`echo "scale=3; $y / $scale" | bc`
+	z=`echo "scale=3; $z / $scale" | bc`
+	printf "$link\t$x\t$y\t$z\n" >> "$prefix$chain.txt"
+done
+
+exec 6<&-

@@ -1,0 +1,4 @@
+Tekkotsu Storyboard Tool:
+- repackaged for eclipse 3.1 (included JDOM 1.0 library)
+- make sure you've downloaded and installed GEF 3.1
+- open plugin.xml -> overview -> Testing -> Launch an eclipse application.

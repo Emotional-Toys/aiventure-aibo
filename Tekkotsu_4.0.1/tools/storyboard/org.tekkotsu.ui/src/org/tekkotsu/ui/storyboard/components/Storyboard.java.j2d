@@ -1,0 +1,164 @@
+/*
+ * Created on Nov 11, 2004
+ */
+package org.tekkotsu.ui.storyboard.components;
+
+import java.awt.Color;
+import java.awt.Component;
+import java.awt.Dimension;
+import java.awt.Graphics;
+import java.awt.Point;
+import java.awt.event.ComponentAdapter;
+import java.awt.event.ComponentEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseMotionAdapter;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
+import java.util.HashSet;
+import java.util.Set;
+
+import org.eclipse.jface.viewers.StructuredSelection;
+import org.tekkotsu.ui.storyboard.views.StoryboardViewer;
+
+/**
+ * @author asangpet
+ *  
+ */
+
+public class Storyboard extends DoubleBufferPanel implements PropertyChangeListener {
+	static final long serialVersionUID = 0xACAC0002;
+
+	static final int preferredWidth = 800, preferredHeight = 25;
+
+	int gap = 8, halfgap = 4, xoffset = 20;
+
+	int cursor = 0;
+
+	boolean mouseDown = false;
+	StoryboardViewer parentViewer;
+
+	//protected BufferedImage img_buffer = null;
+
+	//protected Graphics2D g_context;
+
+	public Storyboard(StoryboardViewer viewer) {
+		super();
+		//this.setLayout(null);
+		parentViewer = viewer;
+		
+		this.addMouseListener(new MouseAdapter() {
+			public void mouseClicked(MouseEvent e) {
+				if (e.getButton() == MouseEvent.BUTTON1)
+					moveCursor(e.getPoint());
+			}
+		});
+
+		this.addMouseMotionListener(new MouseMotionAdapter() {
+			public void mouseDragged(MouseEvent e) {
+				if ((e.getModifiersEx() & MouseEvent.BUTTON1_DOWN_MASK) != 0)
+					moveCursor(e.getPoint());
+			}
+		});
+
+		this.addComponentListener(new ComponentAdapter() {
+			public void componentShown(ComponentEvent e) {
+				//drawBuffer();
+				repaint();
+			}
+
+			public void componentResized(ComponentEvent e) {
+				Dimension dim = getSize();
+				if (dim.width <= 0)
+					dim.width = 1;
+				if (dim.height <= 0)
+					dim.height = 1;
+				//img_buffer = (BufferedImage) createImage(dim.width, dim.height);
+				//drawBuffer();
+				repaint();
+			}
+		});
+
+		setPreferredSize(new Dimension(preferredWidth, preferredHeight));
+	}
+
+	public void propertyChange(PropertyChangeEvent evt) {		
+		if (evt.getPropertyName().equals(TimeLine.TIMELINE_CURSOR_CHANGED)) {
+			setCursor(((Integer) evt.getNewValue()).intValue());
+		}
+	}
+
+	
+	/**
+	 * Move cursor to a specific time located by point P
+	 * @param p a point which the cursor should move to
+	 */
+	public void moveCursor(Point p) {
+		int cursor = (p.x - xoffset) / gap;
+		if (cursor < 0)
+			cursor = 0;
+		setCursor(cursor);
+		firePropertyChange(TimeLine.TIMELINE_CURSOR_CHANGED, null, new Integer(
+				this.cursor));
+	}
+
+	/**
+	 * Set cursor at a specific point in time
+	 * @param cursor time which the cursor should move to
+	 */
+	public void setCursor(int cursor) {
+		boolean changed = this.cursor != cursor;
+				
+		this.cursor = cursor;
+		if (cursor < 0)
+			cursor = 0;
+		
+		if (changed) {
+			Component[] components = this.getComponents();
+			Set selectSet = new HashSet();
+		
+			for (int i = 0; i < components.length; i++) {
+				if (components[i] instanceof Transition) {
+					Transition t = (Transition)components[i];
+					int time=t.getModel().getTime();
+					if (time==cursor) {
+						selectSet.add(t.getModel());
+						t.setActive(true);
+						//setComponentZOrder(t,0);
+					} else t.setActive(false);
+				} else
+				if (components[i] instanceof Block) {
+					Block block = (Block) components[i];
+					int starttime = block.getModel().getStart();
+					int endtime = block.getModel().getEnd();
+					if (starttime <= cursor && endtime >= cursor) {
+						selectSet.add(block.getModel());
+						block.setActive(true);
+						//this.setComponentZOrder(block,1);
+					} else {
+						block.setActive(false);
+					}
+				}
+			}
+			StructuredSelection selection = new StructuredSelection(selectSet.toArray());
+			parentViewer.setSelection(selection);
+		}
+
+		//drawBuffer();
+		repaint();
+	}
+
+	public void paintBuffer(Graphics g) {
+		Dimension dim = getSize();
+		paintChildren(g);
+		// draw cursor
+		g.setColor(new Color(255, 0, 0));
+		g.drawLine(xoffset + getValue() * gap, 0, xoffset + getValue() * gap,
+				dim.height - 1);		
+
+	}
+
+	public int getValue() {
+		return cursor;
+	}
+}

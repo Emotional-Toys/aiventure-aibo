@@ -1,0 +1,13 @@
+#!/bin/sh
+
+eval $*
+
+for x in *
+do
+    if [ -d $x ]
+    then
+	cd $x
+	eval $0 $*
+	cd ..
+    fi
+done

@@ -1,0 +1,130 @@
+/*
+ * Created on Nov 9, 2004
+ */
+package org.tekkotsu.ui.storyboard.components;
+
+import java.awt.*;
+import java.awt.event.ComponentAdapter;
+import java.awt.event.ComponentEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseMotionAdapter;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
+
+public class TimeLine 
+	extends DoubleBufferPanel
+	implements PropertyChangeListener {
+	
+	static final long serialVersionUID = 0xACAC0001;
+	static final int preferredWidth = 800, preferredHeight = 25;
+	public static final String TIMELINE_CURSOR_CHANGED = "_time_change";
+	
+	int gap = 8, halfgap = 4, xoffset = 20;
+
+	int cursor = 0;
+
+	boolean mouseDown = false;
+	
+	public TimeLine() {
+		super();
+		this.addMouseListener(new MouseAdapter() {
+			public void mouseClicked(MouseEvent e) {
+				if (e.getButton() == MouseEvent.BUTTON1)
+					moveCursor(e.getPoint());
+			}
+		});
+		
+		this.addMouseMotionListener(new MouseMotionAdapter() {
+			public void mouseDragged(MouseEvent e) {
+				if ((e.getModifiersEx() & MouseEvent.BUTTON1_DOWN_MASK) != 0)
+					moveCursor(e.getPoint());
+			}
+		});
+		
+		this.addComponentListener(new ComponentAdapter() {
+			public void componentShown(ComponentEvent e) {
+				repaint();
+			}
+			public void componentResized(ComponentEvent e) {
+				repaint();
+			}			
+		});
+		
+		setPreferredSize(new Dimension(preferredWidth, preferredHeight));
+	}	
+	
+	public void propertyChange(PropertyChangeEvent evt) {
+		if (evt.getPropertyName().equals(TimeLine.TIMELINE_CURSOR_CHANGED)) {
+			setCursor(((Integer)evt.getNewValue()).intValue());
+		}
+	}
+	
+	public void moveCursor(Point p) {		
+		int cursor = (p.x - xoffset) / gap;
+		if (cursor<0) cursor = 0;
+		setCursor(cursor);
+		firePropertyChange(TimeLine.TIMELINE_CURSOR_CHANGED, null, new Integer(this.cursor));
+	}
+	
+	public void setCursor(int cursor) {
+		this.cursor = cursor;
+		if (cursor<0) cursor = 0;
+		repaint();
+	}
+		
+	public void paintBuffer(Graphics g) {
+		Dimension dim = getSize();
+		boolean recreate = false;
+		if ((dim.width<=0) || (dim.height<=0)) return;
+		
+		Graphics2D g2d = (Graphics2D)g;
+		
+		Color bgColor = new Color(235, 235, 228);
+		g2d.setColor(bgColor);
+		g2d.fillRect(0, 0, dim.width, dim.height - 1);
+
+		g2d.setColor(new Color(209, 209, 203));
+		g2d.drawLine(0, dim.height - 2, dim.width, dim.height - 2);
+		g2d.setColor(new Color(218, 218, 211));
+		g2d.drawLine(0, dim.height - 3, dim.width, dim.height - 3);
+		g2d.setColor(new Color(226, 226, 220));
+		g2d.drawLine(0, dim.height - 4, dim.width, dim.height - 4);
+
+		Color tickColor = new Color(128, 128, 128);
+		Color textColor = new Color(0, 0, 0);
+		g2d.setColor(tickColor);
+		g2d.drawLine(0, 0, dim.width, 0);
+		g2d.drawLine(0, dim.height - 1, dim.width, dim.height - 1);
+
+		Font sansSerifFont = new Font("Sans", Font.PLAIN, 10);
+		g2d.setFont(sansSerifFont);
+		int count = 4, metric = 0, xoff;
+		for (int x = xoffset; x < dim.width; x += gap) {
+			g2d.drawLine(x, 2, x, 4);
+			g2d.drawLine(x, dim.height - 3, x, dim.height - 5);
+			if (count == 4) {
+				g2d.setColor(textColor);
+				xoff = x - ("" + metric).length() * 2;
+				g2d.drawString(metric + "", xoff, 16);
+				g2d.setColor(tickColor);
+				count = 0;
+			} else
+				count++;
+			metric++;
+		}
+
+		// draw cursor
+		g2d.setColor(new Color(255, 0, 0, 60));
+		g2d.fillRect(xoffset + getValue() * gap - halfgap, 1, gap,
+				dim.height - 2);
+		g2d.setColor(new Color(255, 0, 0));
+		g2d.drawRect(xoffset + getValue() * gap - halfgap, 1, gap,
+				dim.height - 3);
+						
+	}
+
+	public int getValue() {
+		return cursor;
+	}
+}

@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<trace>
+<event>
+<statestart id="alpha" time="964925" />
+</event>
+<event>
+<statestop id="alpha" time="967930" />
+<statestart id="bravo" time="967930" />
+<fire id="{alpha}--TimeOutTrans--&gt;{bravo}" time="967931" />
+</event>
+<event>
+<statestop id="bravo" time="970939" />
+<statestart id="charlie" time="970939" />
+<fire id="{bravo}--TimeOutTrans--&gt;{charlie}" time="970939" />
+</event>
+<event type="userlog" sid="charlie" time="972000" voff="15">LogMe</event>
+<event>
+<statestop id="charlie" time="973947" />
+<statestart id="alpha" time="973947" />
+<fire id="{charlie}--TimeOutTrans--&gt;{alpha}" time="973947" />
+</event>
+<event>
+<statestop id="alpha" time="976954" />
+<statestart id="bravo" time="976954" />
+<fire id="{alpha}--TimeOutTrans--&gt;{bravo}" time="976955" />
+</event>
+<event>
+<statestop id="bravo" time="979962" />
+<statestart id="charlie" time="979963" />
+<fire id="{bravo}--TimeOutTrans--&gt;{charlie}" time="979963" />
+</event>
+<event>
+<statestop id="charlie" time="981814" />
+<statestart id="alpha" time="981979" />
+<fire id="{charlie}--TimeOutTrans--&gt;{alpha}" time="981979" />
+</event>
+<event>
+<statestop id="alpha" time="996794" />
+<statestart id="bravo" time="996794" />
+<fire id="{alpha}--TimeOutTrans--&gt;{bravo}" time="996795" />
+</event>
+<event type="userlog" sid="bravo" time="998000" voff="15">LogMe2</event>
+<event>
+<statestop id="bravo" time="999803" />
+<statestart id="charlie" time="999803" />
+<fire id="{bravo}--TimeOutTrans--&gt;{charlie}" time="999803" />
+</event>
+<event type="userlog" sid="charlie" time="1000000" voff="15">LogMe3</event>
+<event>
+<statestop id="charlie" time="1002810" />
+<statestart id="alpha" time="1002810" />
+<fire id="{charlie}--TimeOutTrans--&gt;{alpha}" time="1002811" />
+</event>
+<event>
+<statestop id="alpha" time="1005818" />
+<statestart id="bravo" time="1005818" />
+<fire id="{alpha}--TimeOutTrans--&gt;{bravo}" time="1005819" />
+</event>
+<event>
+<statestop id="bravo" time="1008826" />
+<statestart id="charlie" time="1008827" />
+<fire id="{bravo}--TimeOutTrans--&gt;{charlie}" time="1008827" />
+</event>
+<event>
+<statestop id="charlie" time="1011827" />
+<statestart id="alpha" time="1011827" />
+<fire id="{charlie}--TimeOutTrans--&gt;{alpha}" time="1011827" />
+</event>
+<event>
+<statestop id="alpha" time="1014842" />
+<statestart id="bravo" time="1014842" />
+<fire id="{alpha}--TimeOutTrans--&gt;{bravo}" time="1014843" />
+</event>
+<event>
+<statestop id="bravo" time="1017850" />
+<statestart id="charlie" time="1017850" />
+<fire id="{bravo}--TimeOutTrans--&gt;{charlie}" time="1017851" />
+</event>
+<event>
+<statestop id="charlie" time="1020860" />
+<statestart id="alpha" time="1020860" />
+<fire id="{charlie}--TimeOutTrans--&gt;{alpha}" time="1020860" />
+</event>
+<event>
+<statestop id="alpha" time="1023866" />
+<statestart id="bravo" time="1023867" />
+<fire id="{alpha}--TimeOutTrans--&gt;{bravo}" time="1023867" />
+</event>
+<event>
+<statestop id="bravo" time="1026874" />
+<statestart id="charlie" time="1026875" />
+<fire id="{bravo}--TimeOutTrans--&gt;{charlie}" time="1026875" />
+</event>
+<event>
+<statestop id="charlie" time="1029882" />
+<statestart id="alpha" time="1029883" />
+<fire id="{charlie}--TimeOutTrans--&gt;{alpha}" time="1029883" />
+</event>
+<event>
+<statestop id="alpha" time="1032890" />
+<statestart id="bravo" time="1032890" />
+<fire id="{alpha}--TimeOutTrans--&gt;{bravo}" time="1032891" />
+</event>
+<event>
+<statestop id="bravo" time="1035898" />
+<statestart id="charlie" time="1035899" />
+<fire id="{bravo}--TimeOutTrans--&gt;{charlie}" time="1035899" />
+</event>
+<event>
+<statestop id="charlie" time="1038906" />
+<statestart id="alpha" time="1038907" />
+<fire id="{charlie}--TimeOutTrans--&gt;{alpha}" time="1038907" />
+</event>
+<event>
+<statestop id="alpha" time="1041914" />
+<statestart id="bravo" time="1041915" />
+<fire id="{alpha}--TimeOutTrans--&gt;{bravo}" time="1041915" />
+</event>
+<event>
+<statestop id="bravo" time="1044922" />
+<statestart id="charlie" time="1044923" />
+<fire id="{bravo}--TimeOutTrans--&gt;{charlie}" time="1044923" />
+</event>
+<event>
+<statestop id="charlie" time="1047923" />
+<statestart id="alpha" time="1047923" />
+<fire id="{charlie}--TimeOutTrans--&gt;{alpha}" time="1047924" />
+</event>
+<event>
+<statestop id="alpha" time="1050930" />
+<statestart id="bravo" time="1050931" />
+<fire id="{alpha}--TimeOutTrans--&gt;{bravo}" time="1050931" />
+</event>
+<event>
+<statestop id="bravo" time="1053947" />
+<statestart id="charlie" time="1053947" />
+<fire id="{bravo}--TimeOutTrans--&gt;{charlie}" time="1053947" />
+</event>
+<event>
+<statestop id="charlie" time="1056954" />
+<statestart id="alpha" time="1056955" />
+<fire id="{charlie}--TimeOutTrans--&gt;{alpha}" time="1056955" />
+</event>
+<event>
+<statestop id="alpha" time="1059962" />
+<statestart id="bravo" time="1059962" />
+<fire id="{alpha}--TimeOutTrans--&gt;{bravo}" time="1059963" />
+</event>
+<event>
+<statestop id="bravo" time="1062971" />
+<statestart id="charlie" time="1062971" />
+<fire id="{bravo}--TimeOutTrans--&gt;{charlie}" time="1062971" />
+</event>
+<event>
+<statestop id="charlie" time="1065978" />
+<statestart id="alpha" time="1065979" />
+<fire id="{charlie}--TimeOutTrans--&gt;{alpha}" time="1065979" />
+</event>
+<event>
+<statestop id="alpha" time="1068986" />
+<statestart id="bravo" time="1068987" />
+<fire id="{alpha}--TimeOutTrans--&gt;{bravo}" time="1068987" />
+</event>
+<event>
+<statestop id="bravo" time="1071994" />
+<statestart id="charlie" time="1071995" />
+<fire id="{bravo}--TimeOutTrans--&gt;{charlie}" time="1071995" />
+</event>
+<event>
+<statestop id="charlie" time="1075003" />
+<statestart id="alpha" time="1075003" />
+<fire id="{charlie}--TimeOutTrans--&gt;{alpha}" time="1075003" />
+</event>
+<event>
+<statestop id="alpha" time="1078010" />
+<statestart id="bravo" time="1078011" />
+<fire id="{alpha}--TimeOutTrans--&gt;{bravo}" time="1078011" />
+</event>
+<event>
+<statestop id="bravo" time="1081018" />
+<statestart id="charlie" time="1081019" />
+<fire id="{bravo}--TimeOutTrans--&gt;{charlie}" time="1081019" />
+</event>
+<event>
+<statestop id="charlie" time="1084026" />
+</event>
+</trace>

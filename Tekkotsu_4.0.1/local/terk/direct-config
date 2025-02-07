@@ -1,0 +1,23 @@
+Ice.Package.peer=edu.cmu.ri.mrpl
+Ice.Package.TeRK=edu.cmu.ri.mrpl
+Ice.Default.Package=edu.cmu.ri.mrpl
+
+TerkClient.Client.Endpoints=tcp
+
+# Active connection management must be disabled when using bidirectional connections.
+Ice.ACM.Client=0
+Ice.ACM.Server=0
+
+# Print warning messages for certain exceptional conditions in connections
+Ice.Warn.Connections=1
+
+Ice.Logger.Timestamp=1
+
+Ice.ThreadPool.Client.Size=5
+Ice.ThreadPool.Client.SizeMax=20
+Ice.ThreadPool.Server.Size=5
+Ice.ThreadPool.Server.SizeMax=20
+
+# protocol and port to use for direct connect
+TeRK.direct-connect.protocol=tcp
+TeRK.direct-connect.port=10101

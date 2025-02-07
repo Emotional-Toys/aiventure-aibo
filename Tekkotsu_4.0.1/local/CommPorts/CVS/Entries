@@ -1,0 +1,11 @@
+/ExecutableCommPort.cc/1.1/Sun Jun  3 17:03:36 2007//Ttekkotsu-4_0-branch
+/ExecutableCommPort.h/1.1/Sun Jun  3 17:03:36 2007//Ttekkotsu-4_0-branch
+/FileSystemCommPort.cc/1.2/Mon Jun 18 21:47:20 2007//Ttekkotsu-4_0-branch
+/FileSystemCommPort.h/1.2/Fri Nov  9 19:01:17 2007//Ttekkotsu-4_0-branch
+/NetworkCommPort.cc/1.5/Sun Nov 11 23:57:29 2007//Ttekkotsu-4_0-branch
+/NetworkCommPort.h/1.4/Fri Oct 12 16:44:48 2007//Ttekkotsu-4_0-branch
+/RedirectionCommPort.cc/1.1/Sun Jun  3 17:03:36 2007//Ttekkotsu-4_0-branch
+/RedirectionCommPort.h/1.1/Sun Jun  3 17:03:36 2007//Ttekkotsu-4_0-branch
+/SerialCommPort.cc/1.9/Thu Nov  8 16:30:46 2007//Ttekkotsu-4_0-branch
+/SerialCommPort.h/1.4/Thu Nov  8 16:30:46 2007//Ttekkotsu-4_0-branch
+D

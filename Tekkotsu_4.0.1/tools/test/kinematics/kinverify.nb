@@ -1,0 +1,490 @@
+(************** Content-type: application/mathematica **************
+                     CreatedBy='Mathematica 5.0'
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used with any Mathematica-compatible
+application, such as Mathematica, MathReader or Publicon. The data
+for the notebook starts with the line containing stars above.
+
+To get the notebook into a Mathematica-compatible application, do
+one of the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the
+  application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing
+the word CacheID, otherwise Mathematica-compatible applications may
+try to use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+*******************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[     14262,        396]*)
+(*NotebookOutlinePosition[     14891,        418]*)
+(*  CellTagsIndexPosition[     14847,        414]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+Cell[BoxData[{
+    RowBox[{
+      RowBox[{"DHMatrix4", "=", 
+        RowBox[{"Function", "[", 
+          RowBox[{\({theta, d, alpha, a}\), ",", 
+            TagBox[
+              RowBox[{"(", "\[NoBreak]", GridBox[{
+                    {\(Cos[
+                        theta]\), \(\(-Cos[alpha]\)\ Sin[theta]\), \(Sin[
+                          alpha]\ Sin[theta]\), \(a\ Cos[theta]\)},
+                    {\(Sin[
+                        theta]\), \(Cos[alpha]\ Cos[
+                          theta]\), \(\(-Cos[theta]\)\ Sin[alpha]\), \(a\ Sin[
+                          theta]\)},
+                    {"0", \(Sin[alpha]\), \(Cos[alpha]\), "d"},
+                    {"0", "0", "0", "1"}
+                    }], "\[NoBreak]", ")"}],
+              Function[ BoxForm`e$, 
+                MatrixForm[ BoxForm`e$]]]}], "]"}]}], 
+      ";"}], "\[IndentingNewLine]", 
+    RowBox[{\(DHMatrix = 
+          Function[x, 
+            DHMatrix4[x[\([1]\)], x[\([2]\)], x[\([3]\)], x[\([4]\)]]];\), 
+      "\[IndentingNewLine]"}], "\[IndentingNewLine]", \(TabularDHMatrix\  = \ 
+        Function[
+          x, \[IndentingNewLine]ans = {}; \[IndentingNewLine]For[i = 1, 
+            i <= Length[x], \(i++\), \[IndentingNewLine]\(ans = 
+                Append[ans, 
+                  DHMatrix[
+                    x[\([i]\)]]];\)\[IndentingNewLine]]; \
+\[IndentingNewLine]ans\[IndentingNewLine]];\), "\[IndentingNewLine]", \(FKin \
+= Function[{x, n}, \[IndentingNewLine]ans = 
+            IdentityMatrix[4]; \[IndentingNewLine]For[i = 1, 
+            i \[LessEqual] n, \(i++\), 
+            ans = Simplify[
+                ans . x[\([i]\)]\ ]\ ]; \[IndentingNewLine]FullSimplify[
+            ans]\[IndentingNewLine]];\)}], "Input"],
+
+Cell[BoxData[{
+    RowBox[{
+      RowBox[{"lf7", "=", 
+        RowBox[{"(", GridBox[{
+              {"0", "0", \(90  \[Degree]\), "65"},
+              {\(\(-90\) \[Degree]\), \(-62.5\), \(\(-90\) \[Degree]\), "0"},
+              {"0", "9", \(90  \[Degree]\), "69.5"},
+              {\(\(-4.428\) \[Degree]\), \(-4.7\), \(0  \[Degree]\), 
+                "63.572"},
+              {"0", "0", \(0  \[Degree]\), "0"}
+              }], ")"}]}], ";"}], "\[IndentingNewLine]", 
+    RowBox[{
+      RowBox[{"rf7", "=", 
+        RowBox[{"(", GridBox[{
+              {"0", "0", \(90  \[Degree]\), "65"},
+              {\(\(-90\) \[Degree]\), "62.5", \(90  \[Degree]\), "0"},
+              {"0", \(-9\), \(\(-90\) \[Degree]\), "69.5"},
+              {\(\(-4.428\) \[Degree]\), "4.7", \(0  \[Degree]\), "63.572"},
+              {"0", "0", \(0  \[Degree]\), "0"}
+              }], ")"}]}], ";"}], "\[IndentingNewLine]", 
+    RowBox[{
+      RowBox[{"lh7", "=", 
+        RowBox[{"(", GridBox[{
+              {"0", "0", \(\(-90\) \[Degree]\), \(-65\)},
+              {\(90  \[Degree]\), "62.5", \(90  \[Degree]\), "0"},
+              {"0", \(-9\), \(\(-90\) \[Degree]\), "69.5"},
+              {\(\(-27.011\) \[Degree]\), "4.7", \(180  \[Degree]\), 
+                "64.125"},
+              {"0", "0", \(0  \[Degree]\), "0"}
+              }], ")"}]}], ";"}], "\[IndentingNewLine]", 
+    RowBox[{
+      RowBox[{
+        RowBox[{"rh7", "=", 
+          RowBox[{"(", GridBox[{
+                {"0", "0", \(\(-90\) \[Degree]\), \(-65\)},
+                {\(90  \[Degree]\), \(-62.5\), \(\(-90\) \[Degree]\), "0"},
+                {"0", "9", \(90  \[Degree]\), "69.5"},
+                {\(\(-27.011\) \[Degree]\), \(-4.7\), \(180  \[Degree]\), 
+                  "64.125"},
+                {"0", "0", \(0  \[Degree]\), "0"}
+                }], ")"}]}], ";"}], 
+      "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+    RowBox[{
+      RowBox[{"mouth7", "=", 
+        RowBox[{"(", GridBox[{
+              {"0", "19.5", \(90  \[Degree]\), "67.5"},
+              {"0", "0", \(\(-90\) \[Degree]\), "0"},
+              {"0", "80", \(90  \[Degree]\), "0"},
+              {\(\(-23.62937773065682`\) \[Degree]\), "0", "0", "43.6606"},
+              {\(7.3301480372107015`  \[Degree]\), "0", \(\(-90\) \[Degree]\),
+                 "42.0076"}
+              }], ")"}]}], ";"}], "\[IndentingNewLine]", 
+    RowBox[{
+      RowBox[{"cam7", "=", 
+        RowBox[{"(", GridBox[{
+              {"0", "19.5", \(90  \[Degree]\), "67.5"},
+              {"0", "0", \(\(-90\) \[Degree]\), "0"},
+              {"0", "80", \(90  \[Degree]\), "0"},
+              {\(\(-90\) \[Degree]\), "0", \(\(-90\) \[Degree]\), "14.6"},
+              {\(\(-90\) \[Degree]\), "81.06", "0", "0"}
+              }], ")"}]}], ";"}], "\[IndentingNewLine]", 
+    RowBox[{
+      RowBox[{"nir7", "=", 
+        RowBox[{"(", GridBox[{
+              {"0", "19.5", \(90  \[Degree]\), "67.5"},
+              {"0", "0", \(\(-90\) \[Degree]\), "0"},
+              {"0", "80", \(90  \[Degree]\), "0"},
+              {"0.0249189", "2.79525", "0", "76.9239"},
+              {"1.50041", "0", "1.55997", "0"}
+              }], ")"}]}], ";"}], "\[IndentingNewLine]", 
+    RowBox[{
+      RowBox[{"fir7", "=", 
+        RowBox[{"(", GridBox[{
+              {"0", "19.5", \(90  \[Degree]\), "67.5"},
+              {"0", "0", \(\(-90\) \[Degree]\), "0"},
+              {"0", "80", \(90  \[Degree]\), "0"},
+              {"0.0136814", \(-8.04682\), "0", "76.9072"},
+              {"1.52305", "0", "1.56055", "0"}
+              }], ")"}]}], ";"}], "\[IndentingNewLine]", 
+    RowBox[{
+      RowBox[{"cir7", "=", 
+        RowBox[{"(", GridBox[{
+              {"0", "19.5", \(90  \[Degree]\), "67.5"},
+              {\(60  \[Degree]\), "0", \(90  \[Degree]\), "1"},
+              {"0", \(35.5 + 12\), "0", "0"}
+              }], ")"}]}], ";"}], "\[IndentingNewLine]", 
+    RowBox[{
+      RowBox[{"cir7b", "=", 
+        RowBox[{"(", GridBox[{
+              {
+                "0", \(19.5 + 47.5*Sin[\(-30\) \[Degree]] + 
+                  1*Sin[60  \[Degree]]\), \(90  \[Degree]\), \(67.5 + 
+                  47.5*Cos[\(-30\) \[Degree]] + 1*Cos[60  \[Degree]]\)},
+              {\(60  \[Degree]\), "0", \(90  \[Degree]\), "0"}
+              }], ")"}]}], ";"}], "\[IndentingNewLine]", 
+    RowBox[{
+      RowBox[{"mouth2xx", "=", 
+        RowBox[{"(", GridBox[{
+              {"0", "50", \(90  \[Degree]\), "75"},
+              {"0", "0", \(\(-90\) \[Degree]\), "0"},
+              {\(90  \[Degree]\), "48", \(90  \[Degree]\), "0"},
+              {\(\(-90\) \[Degree]\), "19.9547", \(90  \[Degree]\), 
+                "21.1774"}
+              }], ")"}]}], ";"}], "\[IndentingNewLine]", 
+    RowBox[{
+      RowBox[{"cam2xx", "=", 
+        RowBox[{"(", GridBox[{
+              {"0", "50", \(90  \[Degree]\), "75"},
+              {"0", "0", \(\(-90\) \[Degree]\), "0"},
+              {\(90  \[Degree]\), "48", \(90  \[Degree]\), "0"},
+              {"180", "66.6", "0", "0"}
+              }], ")"}]}], ";"}], "\[IndentingNewLine]", 
+    RowBox[{
+      RowBox[{"ir2xx", "=", 
+        RowBox[{"(", GridBox[{
+              {"0", "50", \(90  \[Degree]\), "75"},
+              {"0", "0", \(\(-90\) \[Degree]\), "0"},
+              {\(90  \[Degree]\), "48", \(90  \[Degree]\), "0"},
+              {\(-2.02003\), "26.5", "0", "16.2027"},
+              {"1.26156", "0", \(-0.0215808\), "0"}
+              }], ")"}]}], ";"}]}], "Input"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(FKin[TabularDHMatrix[lh7], 5] // MatrixForm\)], "Input"],
+
+Cell[BoxData[
+    TagBox[
+      RowBox[{"(", "\[NoBreak]", GridBox[{
+            {"0.4541615523442866`", "0.8909193478493033`", 
+              "0.`", \(-44.87689045592262`\)},
+            {"0.`", "0.`", \(-1.`\), "67.2`"},
+            {\(-0.8909193478493033`\), "0.4541615523442866`", 
+              "0.`", \(-126.63020318083657`\)},
+            {"0.`", "0.`", "0.`", "1.`"}
+            }], "\[NoBreak]", ")"}],
+      Function[ BoxForm`e$, 
+        MatrixForm[ BoxForm`e$]]]], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+    \(FKin[TabularDHMatrix[lh7], 5] // MatrixForm\), "\[IndentingNewLine]", 
+    \(FKin[TabularDHMatrix[lf7], 5] // MatrixForm\), "\[IndentingNewLine]", 
+    \(\((Inverse[FKin[TabularDHMatrix[cir7], 1]] . 
+          FKin[TabularDHMatrix[cir7], 3])\) // MatrixForm\)}], "Input"],
+
+Cell[BoxData[
+    TagBox[
+      RowBox[{"(", "\[NoBreak]", GridBox[{
+            {"0.4541615523442866`", "0.8909193478493033`", 
+              "0.`", \(-44.87689045592262`\)},
+            {"0.`", "0.`", \(-1.`\), "67.2`"},
+            {\(-0.8909193478493033`\), "0.4541615523442866`", 
+              "0.`", \(-126.63020318083657`\)},
+            {"0.`", "0.`", "0.`", "1.`"}
+            }], "\[NoBreak]", ")"}],
+      Function[ BoxForm`e$, 
+        MatrixForm[ BoxForm`e$]]]], "Output"],
+
+Cell[BoxData[
+    TagBox[
+      RowBox[{"(", "\[NoBreak]", GridBox[{
+            {\(-0.07720627083999129`\), "0.9970151411804045`", "0.`", 
+              "69.09184295016007`"},
+            {"0.`", "0.`", \(-1.`\), "67.2`"},
+            {\(-0.9970151411804045`\), \(-0.07720627083999129`\), 
+              "0.`", \(-132.88224655512067`\)},
+            {"0.`", "0.`", "0.`", "1.`"}
+            }], "\[NoBreak]", ")"}],
+      Function[ BoxForm`e$, 
+        MatrixForm[ BoxForm`e$]]]], "Output"],
+
+Cell[BoxData[
+    TagBox[
+      RowBox[{"(", "\[NoBreak]", GridBox[{
+            {"0.5`", "0.`", "0.8660254037844386`", "41.63620667976083`"},
+            {"0.8660254037844386`", 
+              "0.`", \(-0.5`\), \(-22.883974596215563`\)},
+            {"0.`", "1.`", "0.`", "0.`"},
+            {"0.`", "0.`", "0.`", "1.`"}
+            }], "\[NoBreak]", ")"}],
+      Function[ BoxForm`e$, 
+        MatrixForm[ BoxForm`e$]]]], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+    \(\(dhm = TabularDHMatrix[nir7];\)\), "\[IndentingNewLine]", 
+    \(Inverse[FKin[dhm, 3]] . FKin[dhm, 5] . {0, 0, 1, 1} - 
+      Inverse[FKin[dhm, 3]] . 
+        FKin[dhm, 5] . {0, 0, 0, 1}\), "\[IndentingNewLine]", 
+    \(FKin[dhm, 5] // TraditionalForm\)}], "Input"],
+
+Cell[BoxData[
+    \({0.9989079910696432`, \(-0.04544909905165828`\), 0.010826115305011541`, 
+      0.`}\)], "Output"],
+
+Cell[BoxData[
+    FormBox[
+      RowBox[{"(", "\[NoBreak]", GridBox[{
+            {"0.04545176271146529`", \(-0.010814926889512378`\), 
+              "0.9989079910696456`", "144.40001822730866`"},
+            {
+              "0.`", \(-0.9999413958964808`\), \(-0.010826115305011513`\), \
+\(-2.79525`\)},
+            {"0.9989665346078519`", 
+              "0.000492066023930346`", \(-0.04544909905165821`\), 
+              "101.41666059843548`"},
+            {"0.`", "0.`", "0.`", "1.`"}
+            },
+          ColumnAlignments->{Decimal}], "\[NoBreak]", ")"}], 
+      TraditionalForm]], "Output"]
+}, Open  ]],
+
+Cell[BoxData[
+    \(\t\)], "Input"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(dif = 
+      FKin[dhm, 5] . {0, 0, 0, 1} - FKin[dhm, 4] . {0, 0, 0, 1}\)], "Input"],
+
+Cell[BoxData[
+    \({0.`, 0.`, 0.`, 0.`}\)], "Output"]
+}, Open  ]],
+
+Cell[BoxData[""], "Input"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(ArcTan[dif\[LeftDoubleBracket]1\[RightDoubleBracket], 
+          dif\[LeftDoubleBracket]3\[RightDoubleBracket]]/\[Pi]*180\)], "Input"],
+
+Cell[BoxData[
+    RowBox[{\(ArcTan::"indet"\), \(\(:\)\(\ \)\), "\<\"Indeterminate \
+expression \\!\\(ArcTan[\\(\\(0.`, 0.`\\)\\)]\\) encountered. \
+\\!\\(\\*ButtonBox[\\\"More\[Ellipsis]\\\", ButtonStyle->\\\"RefGuideLinkText\
+\\\", ButtonFrame->None, ButtonData:>\\\"General::indet\\\"]\\)\"\>"}]], \
+"Message"],
+
+Cell[BoxData[
+    \(Interval[{\(-180\), 180}]\)], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(ArcTan[40, \(-17.5\)]/\[Pi]*180\)], "Input"],
+
+Cell[BoxData[
+    \(\(-23.62937773065682`\)\)], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(ArcTan[19.9547, \(-21.1774\)]/\[Pi]*180\)], "Input"],
+
+Cell[BoxData[
+    \(\(-46.70268296020705`\)\)], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+    \(\(-90\) - 12.8916\), "\[IndentingNewLine]", 
+    \(\((\(-90\) - 12.8916)\)/180*\[Pi]\), "\[IndentingNewLine]", 
+    \(90 - 6.3025\), "\[IndentingNewLine]", 
+    \(\((90 - 6.3025)\) \[Degree]\)}], "Input"],
+
+Cell[BoxData[
+    \(\(-102.8916`\)\)], "Output"],
+
+Cell[BoxData[
+    \(\(-1.7957971926449976`\)\)], "Output"],
+
+Cell[BoxData[
+    \(83.6975`\)], "Output"],
+
+Cell[BoxData[
+    \(1.4607969506879541`\)], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(\(-23.62937773065682`\) \[Degree]\)], "Input"],
+
+Cell[BoxData[
+    \(\(-0.4124104415973874`\)\)], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(7.3301480372107015`  \[Degree]\)], "Input"],
+
+Cell[BoxData[
+    \(0.12793521790792656`\)], "Output"]
+}, Open  ]]
+},
+FrontEndVersion->"5.0 for X",
+ScreenRectangle->{{0, 1280}, {0, 1024}},
+WindowSize->{780, 709},
+WindowMargins->{{Automatic, -8}, {Automatic, 0}}
+]
+
+(*******************************************************************
+Cached data follows.  If you edit this Notebook file directly, not
+using Mathematica, you must remove the line containing CacheID at
+the top of  the file.  The cache data will then be recreated when
+you save this file from within Mathematica.
+*******************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+Cell[1754, 51, 1716, 36, 336, "Input"],
+Cell[3473, 89, 5431, 120, 1220, "Input"],
+
+Cell[CellGroupData[{
+Cell[8929, 213, 76, 1, 27, "Input"],
+Cell[9008, 216, 486, 11, 81, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[9531, 232, 292, 4, 75, "Input"],
+Cell[9826, 238, 486, 11, 81, "Output"],
+Cell[10315, 251, 491, 11, 81, "Output"],
+Cell[10809, 264, 433, 10, 81, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[11279, 279, 287, 5, 59, "Input"],
+Cell[11569, 286, 117, 2, 27, "Output"],
+Cell[11689, 290, 598, 14, 81, "Output"]
+}, Open  ]],
+Cell[12302, 307, 35, 1, 27, "Input"],
+
+Cell[CellGroupData[{
+Cell[12362, 312, 103, 2, 27, "Input"],
+Cell[12468, 316, 54, 1, 27, "Output"]
+}, Open  ]],
+Cell[12537, 320, 26, 0, 27, "Input"],
+
+Cell[CellGroupData[{
+Cell[12588, 324, 154, 2, 27, "Input"],
+Cell[12745, 328, 313, 5, 20, "Message"],
+Cell[13061, 335, 59, 1, 27, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[13157, 341, 64, 1, 27, "Input"],
+Cell[13224, 344, 57, 1, 27, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[13318, 350, 72, 1, 27, "Input"],
+Cell[13393, 353, 57, 1, 27, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[13487, 359, 225, 4, 75, "Input"],
+Cell[13715, 365, 48, 1, 27, "Output"],
+Cell[13766, 368, 58, 1, 27, "Output"],
+Cell[13827, 371, 42, 1, 27, "Output"],
+Cell[13872, 374, 53, 1, 27, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[13962, 380, 66, 1, 27, "Input"],
+Cell[14031, 383, 58, 1, 27, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[14126, 389, 63, 1, 27, "Input"],
+Cell[14192, 392, 54, 1, 27, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+
+
+(*******************************************************************
+End of Mathematica Notebook file.
+*******************************************************************)
+

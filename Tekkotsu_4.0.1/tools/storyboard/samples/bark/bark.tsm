@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model>
+  <state id="Bark" class="SoundNode" />
+  <state id="Howl" class="SoundNode" />
+  <state id="Wait" class="StateNode" />
+  <transition id="btrans" class="EventTrans">
+    <source>Bark</source>
+    <destination>Wait</destination>
+  </transition>
+  <transition id="timeout5" class="TimeOutTrans">
+    <source>Bark</source>
+    <destination>Howl</destination>
+  </transition>
+  <transition id="timeout15" class="TimeOutTrans">
+    <source>Wait</source>
+    <destination>Bark</destination>
+  </transition>
+  <transition id="complete" class="CompletionTrans">
+    <source>Howl</source>
+    <destination>Wait</destination>
+  </transition>
+</model>
+

@@ -1,0 +1,46 @@
+ifeq ($(TEKKOTSU_ENVIRONMENT_CONFIGURATION),)
+$(error This makefile is not meant to be run directly.  It is intended to contain local-specific build instructions.  Please run 'make' from the main project directory.);
+endif
+
+.PHONY: 
+
+EXECS:=$(patsubst local/%,%,$(shell find local -mindepth 1 -maxdepth 1 -type d -name '[a-z]*'))
+ifneq ($(HAVE_ICE),)
+	EXECS:=$(filter-out terk,$(EXECS))
+endif
+LSRC_SKIP:=$(foreach x,$(EXECS),\! -path local/$(x)/\*)
+LSRCS:=$(shell find local $(LSRC_SKIP) -name "*$(SRCSUFFIX)")
+SRCS:=$(SRCS) $(LSRCS)
+
+ESRCS:=$(filter-out $(ESRCS) local/terk/%,$(shell find local -name "*$(SRCSUFFIX)"))
+EDEPS:=$(patsubst %$(SRCSUFFIX),$(TK_BD)/%.d,$(ESRCS))
+PLATFORM_OBJS:=$(patsubst %$(SRCSUFFIX),$(TK_BD)/%.o,$(ESRCS))
+
+ifeq ($(filter clean% docs dox doc alldocs newstick,$(MAKECMDGOALS)),)
+-include $(EDEPS)
+endif
+
+ifeq ($(shell uname | grep -ci cygwin),0)
+  PLATFORM_FLAGS:=$(PLATFORM_FLAGS) -DHAVE_READDIR_R
+endif
+
+platformBuild: $(TK_BD)/$(LIBTEKKOTSU) $(PLATFORM_OBJS)
+
+$(TK_BD)/local/terk/peer/MRPLPeer.o $(TK_BD)/local/terk/TeRKPeerCommon.o $(TK_BD)/local/terk/SerialIO.o $(TK_BD)/local/terk/ObjectPingThread.o: %.o: $(if $(TEKKOTSU_PCH),$(TK_BD)/$(TEKKOTSU_PCH).gch) | $(TOOLS_BUILT_FLAG)
+	@mkdir -p $(dir $@)
+	@src=$(patsubst %.o,%$(SRCSUFFIX),$(patsubst $(TK_BD)/%,%,$@)); \
+	echo "Compiling $$src... (reduced warnings)"; \
+	$(CXX) $(filter-out -Weffc++ -Wshadow,$(CXXFLAGS)) $(INCLUDE_PCH) -o $@ -c $$src > $*.log 2>&1; \
+	retval=$$?; \
+	cat $*.log | $(FILTERSYSWARN) | $(COLORFILT) | $(TEKKOTSU_LOGVIEW); \
+	test $$retval -eq 0;
+
+$(TK_BD)/local/DeviceDrivers/Dynamixel.o $(TK_BD)/local/DeviceDrivers/TeRKDriver.o $(TK_BD)/local/terk/QwerkBot.o: %.o: $(if $(TEKKOTSU_PCH),$(TK_BD)/$(TEKKOTSU_PCH).gch) | $(TOOLS_BUILT_FLAG)
+	@mkdir -p $(dir $@)
+	@src=$(patsubst %.o,%$(SRCSUFFIX),$(patsubst $(TK_BD)/%,%,$@)); \
+	echo "Compiling $$src... (reduced warnings)"; \
+	$(CXX) $(filter-out -Weffc++,$(CXXFLAGS)) $(INCLUDE_PCH) -o $@ -c $$src > $*.log 2>&1; \
+	retval=$$?; \
+	cat $*.log | $(FILTERSYSWARN) | $(COLORFILT) | $(TEKKOTSU_LOGVIEW); \
+	test $$retval -eq 0;
+

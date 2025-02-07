@@ -1,0 +1,15 @@
+/GroupNode.h/1.6/Mon Jan 24 22:23:50 2005//Ttekkotsu-4_0-branch
+/HeadPointerNode.h/1.9/Wed Sep 27 20:10:27 2006//Ttekkotsu-4_0-branch
+/LedNode.h/1.8/Sat Sep 16 17:32:38 2006//Ttekkotsu-4_0-branch
+/MCNode.cc/1.6/Tue Mar 13 08:31:26 2007//Ttekkotsu-4_0-branch
+/MCNode.h/1.6/Wed Sep 27 20:12:37 2006//Ttekkotsu-4_0-branch
+/MotionSequenceNode.h/1.5/Sat Apr  7 02:03:43 2007//Ttekkotsu-4_0-branch
+/OutputNode.h/1.8/Wed Feb  2 18:20:27 2005//Ttekkotsu-4_0-branch
+/PostureNode.h/1.5/Sun Nov 11 23:57:19 2007//Ttekkotsu-4_0-branch
+/SoundNode.h/1.13/Mon Sep 18 18:07:59 2006//Ttekkotsu-4_0-branch
+/TailWagNode.h/1.5/Wed Sep 27 20:10:27 2006//Ttekkotsu-4_0-branch
+/WalkNode.h/1.20/Wed Sep 27 20:10:27 2006//Ttekkotsu-4_0-branch
+/WalkToTargetNode.cc/1.4/Tue Aug 28 18:05:19 2007//Ttekkotsu-4_0-branch
+/WalkToTargetNode.h/1.5/Thu Dec 15 18:51:27 2005//Ttekkotsu-4_0-branch
+/WaypointWalkNode.h/1.1/Mon Feb 26 08:42:51 2007//Ttekkotsu-4_0-branch
+D

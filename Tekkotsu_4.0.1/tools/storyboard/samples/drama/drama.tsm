@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model>
+  <state id="Funny" class="c_funny" />
+  <state id="Pink" class="c_pink" />
+  <state id="Follow" class="c_follow" />
+  <state id="Timer" class="c_timer" />
+  <state id="Sit" class="c_sit" />
+  <state id="Sound" class="c_sound" />
+  <state id="Down" class="c_down" />
+  <state id="Sniff" class="c_sniff" />
+  <state id="Up" class="c_up" />
+  <state id="Look" class="c_look" />
+  <state id="Punch" class="c_punch" />
+  <transition id="Funny--&gt;Pink" class="t_fp">
+    <source>Funny</source>
+    <destination>Pink</destination>
+  </transition>
+  <transition id="Pink--&gt;Funny" class="t_pf">
+    <source>Pink</source>
+    <destination>Funny</destination>
+  </transition>
+  <transition id="Pink--&gt;Follow" class="t_pfo">
+    <source>Pink</source>
+    <destination>Follow</destination>
+  </transition>
+  <transition id="Follow--&gt;Timer" class="t_ft">
+    <source>Follow</source>
+    <destination>Timer</destination>
+  </transition>
+  <transition id="Timer--&gt;Sit" class="t_ts">
+    <source>Timer</source>
+    <destination>Sit</destination>
+  </transition>
+  <transition id="Sit--&gt;Sound" class="t_ss">
+    <source>Sit</source>
+    <destination>Sound</destination>
+  </transition>
+  <transition id="Sound--&gt;Down" class="t_sd">
+    <source>Sound</source>
+    <destination>Down</destination>
+  </transition>
+  <transition id="Down--&gt;Sniff" class="t_ds">
+    <source>Down</source>
+    <destination>Sniff</destination>
+  </transition>
+  <transition id="Sniff--&gt;Up" class="t_su">
+    <source>Sniff</source>
+    <destination>Up</destination>
+  </transition>
+  <transition id="Up--&gt;PunchLook" class="t_upl">
+    <source>Up</source>
+    <destination>Punch</destination>
+    <destination>Look</destination>
+  </transition>
+</model>

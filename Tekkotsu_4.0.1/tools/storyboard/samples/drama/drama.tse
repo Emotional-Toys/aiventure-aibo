@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<trace>
+<event>
+<statestart id="Funny" time="1000" />
+</event>
+<event>
+<statestop id="Funny" time="5000" />
+<statestart id="Pink" time="5002" />
+<fire id="Funny--&gt;Pink" time="5001" />
+</event>
+<event type="userlog" sid="Pink" time="7000" voff="15">Waiting</event>
+<event>
+<statestop id="Pink" time="9000" />
+<statestart id="Funny" time="9002" />
+<fire id="Pink--&gt;Funny" time="9001" />
+</event>
+<event>
+<statestop id="Funny" time="9500" />
+<statestart id="Pink" time="9502" />
+<fire id="Funny--&gt;Pink" time="9501" />
+</event>
+<event type="log" egid="button" sid="leftpaw" etid="D" time="9503">paw</event>
+<event type="log" egid="locomotion" sid="mot" etid="D" time="9504"></event>
+<event type="log" egid="locomotion" sid="mot" etid="S" time="9505"></event>
+<event type="log" egid="audio" sid="aud" etid="A" time="9506"></event>
+<event>
+<statestop id="Pink" time="9800" />
+<statestart id="Follow" time="9802" />
+<fire id="Pink--&gt;Follow" time="9801" />
+</event>
+<event type="log" egid="button" sid="mot" etid="A" time="9850"></event>
+<event>
+<statestop id="Follow" time="9883" />
+<statestart id="Timer" time="9885" />
+<fire id="Follow--&gt;Timer" time="9884" />
+</event>
+<event type="userlog" sid="Timer" time="21000" voff="15">more waiting</event>
+<event>
+<statestop id="Timer" time="28000" />
+<statestart id="Sit" time="28002" />
+<fire id="Timer--&gt;Sit" time="28001" />
+</event>
+<event type="log" egid="timer" sid="mot" etid="D" time="28500">time out</event>
+<event>
+<statestop id="Sit" time="28500" />
+<statestart id="Sound" time="28702" />
+<fire id="Sit--&gt;Sound" time="28601" />
+</event>
+<event type="log" egid="audio" sid="audi" etid="A" time="32000"></event>
+<event>
+<statestop id="Sound" time="35000" />
+<statestart id="Down" time="35002" />
+<fire id="Sound--&gt;Down" time="35001" />
+</event>
+<event>
+<statestop id="Down" time="38000" />
+<statestart id="Sniff" time="38002" />
+<fire id="Down--&gt;Sniff" time="38001" />
+</event>
+<event>
+<statestop id="Sniff" time="44000" />
+<statestart id="Up" time="44002" />
+<fire id="Sniff--&gt;Up" time="44001" />
+</event>
+<event type="log" egid="textmsg" sid="mot" etid="S" time="47000">Hello world</event>
+<event>
+<statestop id="Up" time="48000" />
+<statestart id="Punch" time="48002" />
+<statestart id="Look" time="48002" />
+<fire id="Up--&gt;PunchLook" time="48001" />
+</event>
+<event>
+<statestop id="Punch" time="52002" />
+</event>
+<event>
+<statestop id="Look" time="55002" />
+</event>
+<event type="log" egid="estop" sid="stop" etid="A" time="55003"></event>
+</trace>

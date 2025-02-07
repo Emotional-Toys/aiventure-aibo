@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model>
+  <state id="Logging Test" class="LogTestMachine" />
+  <state id="Waiting" class="StateNode" />
+  <state id="Image" class="ImageLogTestNode" />
+  <state id="Message" class="MessageLogTestNode" />
+  <state id="Webcam" class="WebcamLogTestNode" />
+  <transition id="{Waiting}--TextMsgTrans--&gt;{Image}" class="TextMsgTrans">
+    <source>Waiting</source>
+    <destination>Image</destination>
+  </transition>
+  <transition id="{Waiting}--TextMsgTrans--&gt;{Message}" class="TextMsgTrans">
+    <source>Waiting</source>
+    <destination>Message</destination>
+  </transition>
+  <transition id="{Waiting}--TextMsgTrans--&gt;{Webcam}" class="TextMsgTrans">
+    <source>Waiting</source>
+    <destination>Webcam</destination>
+  </transition>
+  <transition id="{Image}--NullTrans--&gt;{Waiting}" class="NullTrans">
+    <source>Image</source>
+    <destination>Waiting</destination>
+  </transition>
+  <transition id="{Message}--NullTrans--&gt;{Waiting}" class="NullTrans">
+    <source>Message</source>
+    <destination>Waiting</destination>
+  </transition>
+  <transition id="{Webcam}--NullTrans--&gt;{Waiting}" class="NullTrans">
+    <source>Webcam</source>
+    <destination>Waiting</destination>
+  </transition>
+</model>
+

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<view model="E:\tekkotsu\viewer\bark.tsm">
+  <state id="Bark" label="Bark" color="#ffc800" top="49" left="42" width="50" height="34" shape="Hexagon" />
+  <state id="Howl" label="Howl" color="#00ff00" top="141" left="110" width="50" height="34" shape="Rectangle" />
+  <state id="Wait" label="Wait" color="#ffafaf" top="47" left="185" width="42" height="42" shape="Ellipse" />
+  <transition id="timeout5" class="TimeOutTrans" label="transition11" color="#000000" top="106" left="68" width="50" height="20" shape="Ellipse" linewidth="1" />
+  <transition id="btrans" class="EventTrans" label="transition37" color="#000000" top="87" left="157" width="50" height="20" shape="Ellipse" linewidth="1" />
+  <transition id="timeout15" class="TimeOutTrans" label="transition45" color="#000000" top="87" left="237" width="50" height="20" shape="Ellipse" linewidth="1" />
+  <transition id="complete" class="CompletionTrans" label="transition49" color="#000000" top="87" left="277" width="50" height="20" shape="Ellipse" linewidth="1" />
+</view>
+

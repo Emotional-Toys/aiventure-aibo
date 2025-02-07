@@ -1,0 +1,21 @@
+#!/usr/bin/perl
+
+use Term::ANSIColor;
+
+$args="";
+for ($i=0; $i<=$#ARGV; $i++) {
+  $args.=" ".$ARGV[$i];
+}
+
+open (IN, "make $args |");
+
+while (<IN>) {
+  chomp;
+  if (/^Building/ || /^Compiling/ || /^Linking/) {
+    print (color("bold blue"), $_, color("reset"), "\n");
+  } else {
+    print "$_\n";
+  }
+}
+
+close (IN);

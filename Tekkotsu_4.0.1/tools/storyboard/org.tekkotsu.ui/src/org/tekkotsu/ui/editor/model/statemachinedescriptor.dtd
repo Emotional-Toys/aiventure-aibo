@@ -1,0 +1,14 @@
+<!DOCTYPE model [
+
+<!ELEMENT model (state*, transition*)>
+<!ELEMENT state (state*, transition*)>
+<!ELEMENT transition (source+, dest+)>
+<!ELEMENT source (#PCDATA)>
+<!ELEMENT dest (#PCDATA)>
+
+<!ATTLIST state id CDATA #REQUIRED>
+<!ATTLIST state class CDATA #REQUIRED>
+<!ATTLIST transition id CDATA #REQUIRED>
+<!ATTLIST transition class CDATA #REQUIRED>
+
+]>
