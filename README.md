@@ -1,2 +1,5 @@
-# aiventure-aibo
-Aibo ERS-210 and ERS-7
+## aiventure-aibo
+
+A repository to support work with Aibo ERS-210 and ERS-7.
+
+
